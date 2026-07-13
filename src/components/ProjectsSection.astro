@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import ProjectCard from "./ProjectCard.astro";
+import ScrollReveal from "./ScrollReveal.astro";
+
+const allProjects = await getCollection("projects");
+const projects = allProjects.slice(0, 3);
+---
+
+<section id="projects" aria-label="Featured Projects section" class="py-20 px-8">
+  <ScrollReveal>
+    <h2 class="text-4xl font-semibold mb-12">Featured Projects</h2>
+  </ScrollReveal>
+  <div class="grid grid-cols-1 gap-6">
+    {projects.map((project, index) => (
+      <ScrollReveal delay={index * 100}>
+        <ProjectCard
+          title={project.data.title}
+          description={project.data.description}
+          technologies={project.data.technologies}
+          thumbnail={project.data.thumbnail}
+          demoUrl={project.data.demoUrl}
+        />
+      </ScrollReveal>
+    ))}
+  </div>
+</section>

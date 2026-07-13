@@ -1,0 +1,11 @@
+title: "Social Media Analytics"
+description: "Comprehensive analytics tool for social media platforms with insights, engagement metrics, and reporting features."
+technologies:
+  - Next.js
+  - TypeScript
+  - PostgreSQL
+  - D3.js
+thumbnail: "/landing-Donar-App.png"
+repoUrl: "https://github.com/semiarte/project4"
+category: "Data Analytics"
+slug: "social-media-analytics"

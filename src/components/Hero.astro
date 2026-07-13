@@ -1,0 +1,36 @@
+---
+interface Props {
+  authorTitle: string;
+  authorIntro: string;
+}
+const { authorTitle, authorIntro } = Astro.props;
+---
+
+<section
+  id="hero"
+  aria-label="Hero section with author introduction"
+  class="relative min-h-dvh flex items-center justify-center overflow-hidden"
+>
+  <div class="max-w-7xl 2xl:px-0 px-8 z-10">
+    <h1 class="hero-animate hero-animate-delay-1 max-w-4xl text-4xl md:text-6xl lg:text-7xl leading-12 md:leading-16 lg:leading-20 font-semibold text-slate-200 mb-6">
+      {authorTitle}
+    </h1>
+
+    <h2 class="hero-animate hero-animate-delay-2 text-2xl leading-9 font-normal text-slate-400 mb-6">
+      {authorIntro}
+    </h2>
+  </div>
+
+  <!-- Scroll to explore indicator -->
+  <div class="hero-animate hero-animate-delay-3 absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2">
+    <span class="text-sm text-slate-400 tracking-widest">
+      Scroll to explore
+    </span>
+    <svg class="fill-slate-200 animate-bounce motion-safe:animate-bounce duration-75 ease-[cubic-bezier(0.95,0.05,0.795,0.035)]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <g fill="none">
+        <path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+        <path fill="currentColor" d="M10.5 16.035L7.404 12.94a1.5 1.5 0 1 0-2.122 2.121l5.657 5.657a1.5 1.5 0 0 0 2.122 0l5.657-5.656a1.5 1.5 0 1 0-2.122-2.122L13.5 16.035V4.5a1.5 1.5 0 0 0-3 0z" />
+      </g>
+    </svg>
+  </div>
+</section>

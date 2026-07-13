@@ -1,0 +1,51 @@
+---
+import ExternalLink from "./icons/ExternalLink.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  technologies: string[];
+  thumbnail: string;
+  demoUrl?: string;
+}
+
+const { title, description, technologies, thumbnail, demoUrl } = Astro.props;
+---
+
+<a href={demoUrl} target="_blank">
+  <div class="group block h-full">
+    <div class="flex flex-col md:flex-row rounded-md border border-slate-700 hover:bg-(--navy) hover:border-teal-400 transition-all duration-200 transform hover:-translate-y-1">
+      {/* Thumbnail */}
+      <div class="relative h-48 md:h-auto md:w-2/5 lg:w-[45%] overflow-hidden">
+        <img
+          src={thumbnail}
+          alt={title}
+          loading="lazy"
+          decoding="async"
+          class="object-cover p-2 rounded-xl w-full h-full"
+        />
+      </div>
+
+      {/* Content */}
+      <div class="p-6 md:p-8 flex flex-col flex-1 md:w-3/5 lg:w-[55%]">
+        <div class="flex items-center gap-3 mb-2">
+          <h3 class="font-semibold text-xl text-slate-300">{title}</h3>
+          <ExternalLink class="text-slate-200" />
+        </div>
+
+        <p class="text-base md:text-lg text-slate-300 mb-4">
+          {description}
+        </p>
+
+        {/* Technologies */}
+        <div class="flex flex-wrap gap-2">
+          {technologies.map((tech) => (
+            <span class="px-4 py-2 text-xs font-medium bg-teal-900/20 text-teal-400 rounded-full">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</a>

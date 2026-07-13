@@ -1,0 +1,213 @@
+---
+import { siteConfig } from "../data/site";
+import Menu from "./icons/Menu.astro";
+import X from "./icons/X.astro";
+
+const navigationLinks = siteConfig.navigation;
+const authorName = siteConfig.author.name;
+---
+
+<header id="main-header" class="fixed w-full z-50 py-6 px-4 md:px-0">
+  <nav
+    id="main-nav"
+    class="max-w-7xl mx-auto transition-all duration-300 backdrop-blur-sm md:backdrop-blur-none bg-slate-900/80 md:bg-transparent 2xl:px-0 md:px-8 py-4 md:py-0"
+  >
+    <!-- Desktop Navigation -->
+    <div id="desktop-nav" class="hidden md:flex items-center justify-between">
+      <a
+        href="#hero"
+        data-nav-link
+        class="font-medium text-2xl text-slate-200 tracking-wide"
+        >{authorName}</a
+      >
+      <div class="flex items-center space-x-12">
+        {
+          navigationLinks.map((link) => (
+            <a
+              href={link.path}
+              data-nav-link
+              class="text-lg font-medium transition-colors duration-200 text-slate-300 hover:text-teal-400"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+        <a
+          class="text-lg font-medium text-teal-400 border border-teal-400 hover:scale-105 transition-all duration-200 rounded-full px-4 py-2"
+          href="https://jmperezbu-cv.netlify.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Resume
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div
+      class="md:hidden flex justify-between items-center transition-all duration-300 px-8"
+    >
+      <a
+        href="#hero"
+        data-nav-link
+        class="font-medium text-xl text-slate-200 tracking-wide">{authorName}</a
+      >
+      <button
+        id="menu-toggle"
+        class="p-2 rounded-md text-gray-300 hover:bg-gray-800 transition-colors"
+        aria-label="Toggle menu"
+      >
+        <span id="menu-icon-open"><Menu size={24} /></span>
+        <span id="menu-icon-close" class="hidden"><X size={24} /></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div
+      id="mobile-menu"
+      class="md:hidden mt-4 pb-4 border-t border-t-(--navy) hidden"
+    >
+      <nav class="flex flex-col space-y-3 px-8 mt-4">
+        {
+          navigationLinks.map((link) => (
+            <a
+              href={link.path}
+              data-nav-link
+              class="text-base leading-9 font-medium text-slate-300 hover:text-teal-400"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+        <a
+          class="text-base text-center font-medium text-teal-400 border border-teal-400 hover:scale-105 transition-all duration-200 rounded-full mt-4 px-6 py-3"
+          href="https://jmperezbu-cv.netlify.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Resume
+        </a>
+      </nav>
+    </div>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const nav = document.getElementById("main-nav");
+    const desktopNav = document.getElementById("desktop-nav");
+    const menuBtn = document.getElementById("menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuIconOpen = document.getElementById("menu-icon-open");
+    const menuIconClose = document.getElementById("menu-icon-close");
+    const navLinks = document.querySelectorAll("[data-nav-link]");
+
+    // --- Scroll detection → toggle sticky/blur classes ---
+    const updateScrollStyles = () => {
+      const isScrolled = window.scrollY > 20;
+
+      if (isScrolled) {
+        nav?.classList.add(
+          "backdrop-blur-sm",
+          "bg-slate-900/80",
+          "rounded-none",
+          "md:rounded-full",
+          "py-4",
+        );
+        nav?.classList.remove(
+          "md:backdrop-blur-none",
+          "md:bg-transparent",
+          "2xl:px-0",
+          "md:px-8",
+          "md:py-0",
+        );
+        desktopNav?.classList.add("px-12");
+      } else {
+        nav?.classList.remove(
+          "backdrop-blur-sm",
+          "bg-slate-900/80",
+          "rounded-none",
+          "md:rounded-full",
+          "py-4",
+        );
+        nav?.classList.add(
+          "md:backdrop-blur-none",
+          "md:bg-transparent",
+          "2xl:px-0",
+          "md:px-8",
+          "md:py-0",
+        );
+        // Keep base classes that are always present
+        nav?.classList.add("backdrop-blur-sm", "bg-slate-900/80", "py-4");
+        desktopNav?.classList.remove("px-12");
+      }
+
+      // Update header padding
+      const header = document.getElementById("main-header");
+      if (isScrolled) {
+        header?.classList.remove("px-4", "md:px-0");
+        header?.classList.add("2xl:px-0", "px-4");
+      } else {
+        header?.classList.remove("2xl:px-0");
+        header?.classList.add("px-4", "md:px-0");
+      }
+    };
+
+    window.addEventListener("scroll", updateScrollStyles);
+    updateScrollStyles(); // Initial state
+
+    // --- IntersectionObserver → highlight active section ---
+    const sections = document.querySelectorAll("section[id]");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionId = `#${entry.target.id}`;
+            navLinks.forEach((link) => {
+              const href = link.getAttribute("href");
+              // authorName link (#hero) must always stay text-slate-200
+              if (href === "#hero") return;
+              if (href === sectionId) {
+                link.classList.add("text-teal-400");
+                link.classList.remove("text-slate-300");
+              } else if (href && href.startsWith("#")) {
+                link.classList.remove("text-teal-400");
+                link.classList.add("text-slate-300");
+              }
+            });
+          }
+        });
+      },
+      { threshold: 0.3, rootMargin: "-100px 0px 0px 0px" },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    // --- Mobile menu toggle ---
+    menuBtn?.addEventListener("click", () => {
+      const isHidden = mobileMenu?.classList.contains("hidden");
+      mobileMenu?.classList.toggle("hidden");
+      menuIconOpen?.classList.toggle("hidden");
+      menuIconClose?.classList.toggle("hidden");
+    });
+
+    // --- Smooth scroll on nav link clicks ---
+    navLinks.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const href = link.getAttribute("href");
+        // Skip external links (Resume)
+        if (!href || !href.startsWith("#")) return;
+
+        e.preventDefault();
+        const target = document.querySelector(href);
+        target?.scrollIntoView({ behavior: "smooth" });
+
+        // Close mobile menu after click
+        mobileMenu?.classList.add("hidden");
+        menuIconOpen?.classList.remove("hidden");
+        menuIconClose?.classList.add("hidden");
+      });
+    });
+  });
+</script>

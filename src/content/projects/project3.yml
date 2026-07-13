@@ -1,0 +1,11 @@
+title: "Split4Me App"
+description: "Legacy expense-splitting apps have systematically enclosed their core value propositions within high-cost, recurring subscription paywalls. Split4Me app remain fully functional without requiring an upfront registration wall."
+technologies:
+  - Mobile App
+  - React Native
+  - Figma
+thumbnail: "/landing-Donar-App.png"
+demoUrl: "https://example.com/demo3"
+repoUrl: "https://github.com/semiarte/project3"
+category: ""
+slug: "spliforme-app"

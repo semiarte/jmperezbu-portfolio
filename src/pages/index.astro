@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Experience from '../components/Experience.astro';
+import ProjectsSection from '../components/ProjectsSection.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig } from '../data/site';
+---
+
+<BaseLayout title="José Miguel Pérez Buenaño - Frontend Developer & UX/UI Designer" description="Frontend developer and UX/UI designer with 10+ years experience. Expert in React, Laravel, AI-assisted development, and web design.">
+  <div class="min-h-screen flex flex-col bg-linear-180 from-(--navy) to bg-(--dark-navy) text-slate-200 scroll-smooth">
+    <Header />
+    <main class="flex-1 max-w-7xl mx-auto">
+      <Hero authorTitle={siteConfig.authorTitle} authorIntro={siteConfig.authorIntro} />
+      <Experience />
+      <ProjectsSection />
+      <Contact />
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

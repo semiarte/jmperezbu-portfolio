@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+:root {
+  --dark-navy: hsl(216, 65%, 11%);
+  --navy: hsl(214, 64%, 13%);
+  --shadow: 3px 3px 0 0;
+  --translate: -4px;
+  --header-height: 3rem;
+}
+
+@media (width >= 768px) {
+  :root {
+    --header-height: 4rem;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+}
+
+body {
+  background: var(--navy);
+}
+
+/* Hero staggered animations */
+@keyframes slideUpFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-animate {
+  opacity: 0;
+  animation: slideUpFadeIn 0.6s ease-out forwards;
+}
+.hero-animate-delay-1 {
+  animation-delay: 0ms;
+}
+.hero-animate-delay-2 {
+  animation-delay: 180ms;
+}
+.hero-animate-delay-3 {
+  animation-delay: 360ms;
+}
+
+/* ScrollReveal */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes scrollRevealIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .scroll-reveal-native {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: scrollRevealIn linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 100%;
+    transition: none;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-animate,
+  .scroll-reveal,
+  .scroll-reveal-native {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+}

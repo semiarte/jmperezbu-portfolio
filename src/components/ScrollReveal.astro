@@ -1,0 +1,10 @@
+---
+// src/components/ScrollReveal.astro
+interface Props {
+  delay?: number;
+}
+const { delay = 0 } = Astro.props;
+---
+<div class="scroll-reveal" style={`transition-delay: ${delay}ms`}>
+  <slot />
+</div>
