@@ -1,7 +1,16 @@
 ---
+import type { Locale } from '../i18n/types';
+import { getTranslations } from '../i18n/utils';
 import { siteConfig } from "../data/site";
 import ContactInfo from "./ContactInfo.astro";
 import ScrollReveal from "./ScrollReveal.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
 
 const contactData = {
   email: siteConfig.author.email,
@@ -15,13 +24,13 @@ const contactData = {
     <div class="flex flex-wrap items-center gap-12">
       <div>
         <div class="mb-6">
-          <h2 class="text-4xl font-semibold text-slate-200 mb-4">Get In Touch</h2>
-          <span class="px-4 py-2 rounded-full bg-teal-900/20 text-teal-400 text-base font-medium whitespace-nowrap">Open to work</span>
+          <h2 class="text-4xl font-semibold text-slate-200 mb-4">{t.contact.heading}</h2>
+          <span class="px-4 py-2 rounded-full bg-teal-900/20 text-teal-400 text-base font-medium whitespace-nowrap">{t.contact.badge}</span>
         </div>
         <p class="text-lg text-slate-400">
-          Feel free to pop me an email at <a href={`mailto:${contactData.email}`} class="text-teal-400 inline-flex relative items-center after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-0 after:h-0.5 after:bg-teal-400 after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200">{contactData.email}</a>
+          {t.contact.emailIntro} <a href={`mailto:${contactData.email}`} class="text-teal-400 inline-flex relative items-center after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-0 after:h-0.5 after:bg-teal-400 after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200">{contactData.email}</a>
         </p>
-        <p class="text-lg text-slate-400 mb-6">Or give me a shout on social media.</p>
+        <p class="text-lg text-slate-400 mb-6">{t.contact.socialIntro}</p>
         <ContactInfo
           githubUrl={contactData.github}
           linkedinUrl={contactData.linkedin}

@@ -1,14 +1,15 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import Experience from '../components/Experience.astro';
-import ProjectsSection from '../components/ProjectsSection.astro';
-import Contact from '../components/Contact.astro';
-import Footer from '../components/Footer.astro';
-import { getLocaleFromUrl, getTranslations } from '../i18n/utils';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
+import Experience from '../../components/Experience.astro';
+import ProjectsSection from '../../components/ProjectsSection.astro';
+import Contact from '../../components/Contact.astro';
+import Footer from '../../components/Footer.astro';
+import { getTranslations } from '../../i18n/utils';
+import type { Locale } from '../../i18n/types';
 
-const locale = getLocaleFromUrl(Astro.url);
+const locale: Locale = 'es';
 const t = getTranslations(locale);
 ---
 

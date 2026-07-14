@@ -1,9 +1,12 @@
 ---
+import type { Locale } from '../i18n/types';
+import { getTranslations } from '../i18n/utils';
+
 interface Props {
-  authorTitle: string;
-  authorIntro: string;
+  locale: Locale;
 }
-const { authorTitle, authorIntro } = Astro.props;
+const { locale } = Astro.props;
+const t = getTranslations(locale);
 ---
 
 <section
@@ -13,18 +16,18 @@ const { authorTitle, authorIntro } = Astro.props;
 >
   <div class="max-w-7xl 2xl:px-0 px-8 z-10">
     <h1 class="hero-animate hero-animate-delay-1 max-w-4xl text-4xl md:text-6xl lg:text-7xl leading-12 md:leading-16 lg:leading-20 font-semibold text-slate-200 mb-6">
-      {authorTitle}
+      {t.site.authorTitle}
     </h1>
 
     <h2 class="hero-animate hero-animate-delay-2 text-2xl leading-9 font-normal text-slate-400 mb-6">
-      {authorIntro}
+      {t.site.authorIntro}
     </h2>
   </div>
 
   <!-- Scroll to explore indicator -->
   <div class="hero-animate hero-animate-delay-3 absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2">
     <span class="text-sm text-slate-400 tracking-widest">
-      Scroll to explore
+      {t.hero.scrollToExplore}
     </span>
     <svg class="fill-slate-200 animate-bounce motion-safe:animate-bounce duration-75 ease-[cubic-bezier(0.95,0.05,0.795,0.035)]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
       <g fill="none">

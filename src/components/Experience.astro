@@ -1,15 +1,22 @@
 ---
-import { getCollection } from "astro:content";
+import type { Locale } from '../i18n/types';
+import { getTranslations } from '../i18n/utils';
+import { getLocalizedExperience } from '../i18n/content';
 import ExternalLink from "./icons/ExternalLink.astro";
 import ScrollReveal from "./ScrollReveal.astro";
 
-const experienceData = await getCollection("experience");
-const experiences = experienceData[0].data.experience;
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+const experiences = await getLocalizedExperience(locale);
 ---
 
 <section id="experience" aria-label="Work experience section" class="py-20 px-8">
   <ScrollReveal>
-    <h2 class="text-4xl font-semibold mb-12">Experience</h2>
+    <h2 class="text-4xl font-semibold mb-12">{t.experience.heading}</h2>
   </ScrollReveal>
   <div class="space-y-8">
     {experiences.map((exp, index) => (

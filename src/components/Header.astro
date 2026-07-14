@@ -2,8 +2,22 @@
 import { siteConfig } from "../data/site";
 import Menu from "./icons/Menu.astro";
 import X from "./icons/X.astro";
+import type { Locale } from "../i18n/types";
+import { getTranslations } from "../i18n/utils";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
 
-const navigationLinks = siteConfig.navigation;
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+
+const navigationLinks = [
+  { label: t.nav.experience, path: '#experience' },
+  { label: t.nav.projects, path: '#projects' },
+  { label: t.nav.contact, path: '#contact' },
+];
 const authorName = siteConfig.author.name;
 ---
 
@@ -20,7 +34,7 @@ const authorName = siteConfig.author.name;
         class="font-medium text-2xl text-slate-200 tracking-wide"
         >{authorName}</a
       >
-      <div class="flex items-center space-x-12">
+      <div class="flex items-center space-x-9">
         {
           navigationLinks.map((link) => (
             <a
@@ -32,13 +46,14 @@ const authorName = siteConfig.author.name;
             </a>
           ))
         }
+        <LanguageSwitcher />
         <a
           class="text-lg font-medium text-teal-400 border border-teal-400 hover:scale-105 transition-all duration-200 rounded-full px-4 py-2"
           href="https://jmperezbu-cv.netlify.app/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Resume
+          {t.nav.resume}
         </a>
       </div>
     </div>
@@ -79,13 +94,14 @@ const authorName = siteConfig.author.name;
             </a>
           ))
         }
+        <LanguageSwitcher />
         <a
           class="text-base text-center font-medium text-teal-400 border border-teal-400 hover:scale-105 transition-all duration-200 rounded-full mt-4 px-6 py-3"
           href="https://jmperezbu-cv.netlify.app/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Resume
+          {t.nav.resume}
         </a>
       </nav>
     </div>
