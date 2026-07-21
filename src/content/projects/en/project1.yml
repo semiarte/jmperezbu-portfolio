@@ -5,14 +5,14 @@ technologies:
   - UX/UI
   - Figma
   - Filament
-thumbnail: "/landing-Donar-App.png"
+thumbnail: "../../../assets/images/landing-Donar-App.png"
 demoUrl: "/projects/donar-app"
 repoUrl: ""
 category: ""
 slug: "donar-app"
 pageContent:
   intro:
-    mockupImage: "/iPhone.png"
+    mockupImage: "../../../assets/images/iPhone.png"
     mockupAlt: "Mockup of the Donar App main screen"
     problemHeading: "Problem"
     problemDescription: "Many companies donate a percentage of their profits to NGOs, but employees don't perceive or feel this altruism."
@@ -34,11 +34,11 @@ pageContent:
     items:
       - title: "Choose your causes"
         description: "The app targets as many user profiles as there are employees in any company. While one person may feel concerned about the environment, another wants to solve social issues."
-        image: "/categories.png"
+        image: "../../../assets/images/categories.png"
         imageAlt: "Categories screen with search and filters"
       - title: "Crowdfunding"
         description: "With a philosophy similar to crowdfunding platforms, the app sets fundraising goals for charitable projects. People see progress in real time and feel that their contribution creates tangible change."
-        image: "/card.png"
+        image: "../../../assets/images/card.png"
         imageAlt: "Project card: Let's preserve the green heart of the world"
   externalLinks:
     - type: figma
@@ -52,5 +52,5 @@ pageContent:
   additionalSection:
     heading: "Budget manager"
     description: "A budget management application that allows managers to manage and distribute the annual budget among their employees on a monthly basis. The manager sets up their annual budget and the system ensures that allocations do not exceed the total available."
-    image: "/budget-manager.png"
+    image: "../../../assets/images/budget-manager.png"
     imageAlt: "Web application for budget management"

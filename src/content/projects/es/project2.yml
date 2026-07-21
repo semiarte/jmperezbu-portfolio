@@ -5,14 +5,14 @@ technologies:
   - Product Design
   - UX/UI
   - Figma
-thumbnail: "/split4me-mock.png"
+thumbnail: "../../../assets/images/split4me-mock.png"
 demoUrl: "/es/projects/split4me-app"
 repoUrl: ""
 category: ""
 slug: "split4me-app"
 pageContent:
   intro:
-    mockupImage: "/split-app-dashboard.png"
+    mockupImage: "../../../assets/images/split-app-dashboard.png"
     mockupAlt: "Mockup de la pantalla principal de Split4Me App"
     problemHeading: "Problema"
     problemDescription: "Muchas apps para gastos compartidos han evolucionado hacia modelos de suscripción de alto costo, encerrando funciones básicas tras muros de pago."
@@ -36,15 +36,15 @@ pageContent:
     items:
       - title: "Sincronización en nubes personales"
         description: "En lugar de servidores corporativos, la sincronización entre dispositivos y los respaldos se realizan a través de las cuentas personales y cifradas del propio usuario, como iCloud Drive (Apple) y Google Drive (Android/Web)."
-        image: "/connect-storage.png"
+        image: "../../../assets/images/connect-storage.png"
         imageAlt: "Conectar con cloud personal"
       - title: "Procesamiento en el dispositivo"
         description: "Tareas complejas como el OCR con IA para el escaneo de recibos se ejecutan localmente utilizando el hardware del terminal, lo que garantiza privacidad y reduce costos de red."
-        image: "/add-expense.png"
+        image: "../../../assets/images/add-expense.png"
         imageAlt: "Nuevo gasto via OCR o desde inputs"
       - title: "Afilización fintech"
         description: "Integra enlaces profundos (deep-links) para liquidar deudas a través de neobancos. Usuarios de alta frecuencia (viajeros de negocios o autónomos) pueden pagar por funciones avanzadas como exportación masiva a Excel/CSV o almacenamiento ilimitado de fotos de recibos."
-        image: "/settle.png"
+        image: "../../../assets/images/settle.png"
         imageAlt: "Componentes de interfaz para saldar la deuda"
   externalLinks:
     - type: figma

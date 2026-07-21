@@ -1,8 +1,8 @@
 import { defineCollection, z } from "astro:content";
 
-const pageContentSchema = z.object({
+const pageContentSchema = ({ image }: { image: () => z.ZodType<ImageMetadata> }) => z.object({
   intro: z.object({
-    mockupImage: z.string(),
+    mockupImage: image(),
     mockupAlt: z.string(),
     problemHeading: z.string(),
     problemDescription: z.string(),
@@ -23,7 +23,7 @@ const pageContentSchema = z.object({
     items: z.array(z.object({
       title: z.string(),
       description: z.string(),
-      image: z.string(),
+      image: image(),
       imageAlt: z.string(),
     })),
   }),
@@ -36,23 +36,23 @@ const pageContentSchema = z.object({
   additionalSection: z.object({
     heading: z.string(),
     description: z.string(),
-    image: z.string(),
+    image: image(),
     imageAlt: z.string(),
   }).optional(),
 });
 
 const projects = defineCollection({
   type: "data",
-  schema: z.object({
+  schema: ({ image }) => z.object({
     title: z.string(),
     description: z.string(),
     technologies: z.array(z.string()),
-    thumbnail: z.string(),
+    thumbnail: image(),
     demoUrl: z.string().optional(),
     repoUrl: z.string().optional(),
     category: z.string(),
     slug: z.string().optional(),
-    pageContent: pageContentSchema.optional(),
+    pageContent: pageContentSchema({ image }).optional(),
   }),
 });
 

@@ -5,7 +5,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ProjectDetail from '../../components/ProjectDetail.astro';
-import { getTranslations } from '../../i18n/utils';
 
 export async function getStaticPaths() {
   const locale: Locale = 'en';
@@ -21,13 +20,13 @@ export async function getStaticPaths() {
 
 const { project, locale } = Astro.props;
 const pageContent = project.pageContent as Parameters<typeof ProjectDetail>[0]['pageContent'];
-const t = getTranslations(locale);
 ---
 
 <BaseLayout
   title={project.title}
-  description={t.meta.description}
+  description={project.description}
   locale={locale}
+  image={project.thumbnail.src}
 >
   <div class="min-h-screen flex flex-col bg-linear-180 from-(--navy) to-(--dark-navy) text-slate-200 scroll-smooth">
     <Header locale={locale} />

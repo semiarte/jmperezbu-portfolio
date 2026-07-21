@@ -5,14 +5,14 @@ technologies:
   - Product Design
   - UX/UI
   - Figma
-thumbnail: "/split4me-mock.png"
+thumbnail: "../../../assets/images/split4me-mock.png"
 demoUrl: "/projects/split4me-app"
 repoUrl: ""
 category: ""
 slug: "split4me-app"
 pageContent:
   intro:
-    mockupImage: "/split-app-dashboard.png"
+    mockupImage: "../../../assets/images/split-app-dashboard.png"
     mockupAlt: "Mockup of the Split4Me App main screen"
     problemHeading: "Problem"
     problemDescription: "Many shared expense apps have evolved toward high-cost subscription models, locking basic features behind paywalls."
@@ -36,15 +36,15 @@ pageContent:
     items:
       - title: "Personal cloud synchronization"
         description: "Instead of corporate servers, synchronization between devices and backups are performed through the user's own personal and encrypted accounts, such as iCloud Drive (Apple) and Google Drive (Android/Web)."
-        image: "/connect-storage.png"
+        image: "../../../assets/images/connect-storage.png"
         imageAlt: "Connect with personal cloud storage"
       - title: "On-device processing"
         description: "Complex tasks such as AI-powered OCR for receipt scanning run locally using the device's hardware, ensuring privacy and reducing network costs."
-        image: "/add-expense.png"
+        image: "../../../assets/images/add-expense.png"
         imageAlt: "New expense via OCR or manual inputs"
       - title: "Fintech affiliation"
         description: "Integrates deep links to settle debts through neobanks. High-frequency users (business travelers or freelancers) can pay for advanced features like bulk export to Excel/CSV or unlimited receipt photo storage."
-        image: "/settle.png"
+        image: "../../../assets/images/settle.png"
         imageAlt: "Interface components for settling debt"
   externalLinks:
     - type: figma

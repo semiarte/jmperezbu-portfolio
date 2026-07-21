@@ -1,9 +1,11 @@
 ---
+import { Image } from "astro:assets";
 import type { Locale } from "../i18n/types";
 import { getTranslations } from "../i18n/utils";
 import { siteConfig } from "../data/site";
 import ContactInfo from "./ContactInfo.astro";
 import ScrollReveal from "./ScrollReveal.astro";
+import jmperezPhoto from "../assets/images/jmperez.jpg";
 
 interface Props {
   locale: Locale;
@@ -46,10 +48,10 @@ const contactData = {
           linkedinUrl={contactData.linkedin}
         />
       </div>
-      <img
-        src="/jmperez.jpg"
-        width="210"
-        height="210"
+      <Image
+        src={jmperezPhoto}
+        width={210}
+        height={210}
         alt="José Miguel Pérez"
         loading="lazy"
         decoding="async"

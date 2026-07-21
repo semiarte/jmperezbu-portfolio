@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Figma from "./icons/Figma.astro";
 import Github from "./icons/Github.astro";
 import ExternalLink from "./icons/ExternalLink.astro";
@@ -7,7 +8,7 @@ interface Props {
   title: string;
   pageContent: {
     intro: {
-      mockupImage: string;
+      mockupImage: ImageMetadata;
       mockupAlt: string;
       problemHeading: string;
       problemDescription: string;
@@ -25,7 +26,7 @@ interface Props {
       items: Array<{
         title: string;
         description: string;
-        image: string;
+        image: ImageMetadata;
         imageAlt: string;
       }>;
     };
@@ -38,7 +39,7 @@ interface Props {
     additionalSection?: {
       heading: string;
       description: string;
-      image: string;
+      image: ImageMetadata;
       imageAlt: string;
     };
   };
@@ -66,14 +67,16 @@ const { intro, process, features, externalLinks, additionalSection } =
     >
       <!-- Decorative ellipse gradient glow behind mockup -->
       <div
-        class="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/4 w-[80%] h-[80%] rounded-full bg-[#18246E] opacity-60 blur-[80px] rotate-[11.65deg] pointer-events-none -z-0"
+        class="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/4 w-[80%] h-[80%] rounded-full bg-[#18246E] opacity-60 blur-[80px] rotate-[11.65deg] pointer-events-none z-0"
         aria-hidden="true"
       >
       </div>
-      <img
+      <Image
         class="relative z-10 w-full md:max-w-[50%]"
         src={intro.mockupImage}
         alt={intro.mockupAlt}
+        loading="eager"
+        fetchpriority="high"
       />
       <div
         class="hero-animate hero-animate-delay-3 relative z-10 flex flex-col gap-4"
@@ -173,10 +176,11 @@ const { intro, process, features, externalLinks, additionalSection } =
                   {item.description}
                 </p>
               </div>
-              <img
+              <Image
                 class="w-full md:max-w-80"
                 src={item.image}
                 alt={item.imageAlt}
+                loading="lazy"
               />
             </div>
           </div>
@@ -200,9 +204,10 @@ const { intro, process, features, externalLinks, additionalSection } =
             <p class="text-base md:text-lg text-slate-300">
               {additionalSection.description}
             </p>
-            <img
+            <Image
               src={additionalSection.image}
               alt={additionalSection.imageAlt}
+              loading="lazy"
             />
           </div>
         </div>

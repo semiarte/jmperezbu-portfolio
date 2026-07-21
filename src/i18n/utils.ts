@@ -22,3 +22,17 @@ export function getLocalePath(locale: Locale, path: string = ''): string {
   if (locale === 'en') return `/${path}`;
   return `/${locale}/${path}`;
 }
+
+/**
+ * Strips the locale prefix (if any) from a URL pathname, returning the
+ * locale-agnostic path fragment (no leading/trailing slash) so it can be
+ * fed back into getLocalePath() for the current or any other locale.
+ */
+export function getPathFragment(locale: Locale, pathname: string): string {
+  const trimmed = pathname.replace(/^\/+|\/+$/g, '');
+  if (locale === 'es') {
+    if (trimmed === 'es') return '';
+    if (trimmed.startsWith('es/')) return trimmed.slice('es/'.length);
+  }
+  return trimmed;
+}

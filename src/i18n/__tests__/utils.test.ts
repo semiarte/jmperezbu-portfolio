@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { getLocaleFromUrl, getLocalePath, getTranslations } from '../utils';
+import { getLocaleFromUrl, getLocalePath, getPathFragment, getTranslations } from '../utils';
 
 describe('getLocaleFromUrl', () => {
   it('returns "en" for root path', () => {
@@ -38,6 +38,29 @@ describe('getLocalePath', () => {
 
   it('returns "/es/about" for locale "es" with path "about"', () => {
     expect(getLocalePath('es', 'about')).toBe('/es/about');
+  });
+});
+
+describe('getPathFragment', () => {
+  it('returns "" for locale "en" root path "/"', () => {
+    expect(getPathFragment('en', '/')).toBe('');
+  });
+
+  it('returns "" for locale "es" root path "/es/"', () => {
+    expect(getPathFragment('es', '/es/')).toBe('');
+  });
+
+  it('returns "projects/foo" for locale "en" path "/projects/foo"', () => {
+    expect(getPathFragment('en', '/projects/foo')).toBe('projects/foo');
+  });
+
+  it('returns "projects/foo" for locale "es" path "/es/projects/foo"', () => {
+    expect(getPathFragment('es', '/es/projects/foo')).toBe('projects/foo');
+  });
+
+  it('round-trips with getLocalePath for the same locale', () => {
+    const fragment = getPathFragment('es', '/es/projects/foo');
+    expect(getLocalePath('es', fragment)).toBe('/es/projects/foo');
   });
 });
 

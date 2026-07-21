@@ -1,0 +1,31 @@
+---
+import type { Locale } from '../i18n/types';
+import { getTranslations } from '../i18n/utils';
+import { siteConfig } from '../data/site';
+import jmperezPhoto from '../assets/images/jmperez.jpg';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+const siteUrl = Astro.site?.origin ?? 'https://jmperezbu.netlify.app';
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: siteConfig.author.name,
+  jobTitle: t.site.authorTitle,
+  description: t.site.authorIntro,
+  url: siteUrl,
+  image: new URL(jmperezPhoto.src, siteUrl).toString(),
+  email: `mailto:${siteConfig.author.email}`,
+  sameAs: [
+    `https://github.com/${siteConfig.author.github}`,
+    `https://www.linkedin.com/in/${siteConfig.author.linkedin}/`,
+  ],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />

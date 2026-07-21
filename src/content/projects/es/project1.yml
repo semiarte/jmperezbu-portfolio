@@ -5,14 +5,14 @@ technologies:
   - UX/UI
   - Figma
   - Filament
-thumbnail: "/landing-Donar-App.png"
+thumbnail: "../../../assets/images/landing-Donar-App.png"
 demoUrl: "/es/projects/donar-app"
 repoUrl: ""
 category: ""
 slug: "donar-app"
 pageContent:
   intro:
-    mockupImage: "/iPhone.png"
+    mockupImage: "../../../assets/images/iPhone.png"
     mockupAlt: "Mockup de la pantalla principal de Donar App"
     problemHeading: "Problema"
     problemDescription: "Muchas compañías donan un porcentaje de sus beneficios a alguna ONG, pero los empleados no perciben o no sienten este altruismo."
@@ -34,11 +34,11 @@ pageContent:
     items:
       - title: "Decide tus causas"
         description: "La app está dirigida a tantos perfiles de usuarios como empleados puede haber en cualquier empresa. Mientras una persona puede sentirse preocupada por el medio ambiente, otra quiere resolver problemas sociales."
-        image: "/categories.png"
+        image: "../../../assets/images/categories.png"
         imageAlt: "Pantalla de categorías con búsqueda y filtros"
       - title: "Crowdfunding"
         description: "Con una filosofía similar a las plataformas de crowdfunding, la app plantea objetivos de recaudación para los proyectos solidarios. Las personas ven el progreso en tiempo real y sienten que su contribución genera un cambio tangible."
-        image: "/card.png"
+        image: "../../../assets/images/card.png"
         imageAlt: "Tarjeta de proyecto: Conservemos el corazón verde del mundo"
   externalLinks:
     - type: figma
@@ -52,5 +52,5 @@ pageContent:
   additionalSection:
     heading: "Budget manager"
     description: "Se desarrolla una aplicación de gestión presupuestaria que permite a los managers gestionar y distribuir el presupuesto anual entre sus empleados de forma mensual. El manager configura su presupuesto anual y el sistema controla que las asignaciones no superen el total disponible."
-    image: "/budget-manager.png"
+    image: "../../../assets/images/budget-manager.png"
     imageAlt: "Aplicación web para la gestión del presupuesto"

@@ -1,18 +1,23 @@
 ---
 import '../styles/global.css';
 import type { Locale } from '../i18n/types';
-import { getLocalePath } from '../i18n/utils';
+import { getLocalePath, getPathFragment } from '../i18n/utils';
+import defaultOgImage from '../assets/images/jmperez.jpg';
 
 interface Props {
   title: string;
   description: string;
   locale: Locale;
+  image?: string;
 }
-const { title, description, locale } = Astro.props;
+const { title, description, locale, image = defaultOgImage.src } = Astro.props;
 const siteUrl = Astro.site?.origin ?? 'https://jmperezbu.netlify.app';
-const canonicalUrl = `${siteUrl}${getLocalePath(locale)}`;
-const enUrl = `${siteUrl}/`;
-const esUrl = `${siteUrl}/es/`;
+const fragment = getPathFragment(locale, Astro.url.pathname);
+const canonicalUrl = `${siteUrl}${getLocalePath(locale, fragment)}`;
+const enUrl = `${siteUrl}${getLocalePath('en', fragment)}`;
+const esUrl = `${siteUrl}${getLocalePath('es', fragment)}`;
+const ogImageUrl = new URL(image, siteUrl).toString();
+const ogType = fragment.startsWith('projects/') ? 'article' : 'website';
 ---
 <html lang={locale}>
   <head>
@@ -25,6 +30,19 @@ const esUrl = `${siteUrl}/es/`;
     <link rel="alternate" hreflang="en" href={enUrl} />
     <link rel="alternate" hreflang="es" href={esUrl} />
     <link rel="alternate" hreflang="x-default" href={enUrl} />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content={locale === 'es' ? 'es_ES' : 'en_US'} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet" />
