@@ -1,11 +1,53 @@
-title: "Sitio web Cargo"
-description: "Sitio web para una empresa de viajes ficticia que ofrece paquetes de viaje diseñados exclusivamente para parejas. El diseño web transmite una sensación de seguridad, siendo al mismo tiempo profesional. El diseño monocromático con el color de marca es un requisito."
+title: "Split4Me App"
+description: "Las aplicaciones heredadas de división de gastos han encerrado sistemáticamente sus propuestas de valor principales dentro de muros de pago de suscripción recurrente de alto costo. La app Split4Me permanece completamente funcional sin requerir registro previo."
 technologies:
-  - Web
+  - App Design
+  - Product Design
   - UX/UI
   - Figma
-thumbnail: "/landing-Donar-App.png"
-demoUrl: "https://example.com/demo2"
+thumbnail: "/split4me-mock.png"
+demoUrl: "/es/projects/split4me-app"
 repoUrl: ""
 category: ""
-slug: "travel-website"
+slug: "split4me-app"
+pageContent:
+  intro:
+    mockupImage: "/split-app-dashboard.png"
+    mockupAlt: "Mockup de la pantalla principal de Split4Me App"
+    problemHeading: "Problema"
+    problemDescription: "Muchas apps para gastos compartidos han evolucionado hacia modelos de suscripción de alto costo, encerrando funciones básicas tras muros de pago."
+    solutionHeading: "Solución"
+    solutionDescription: "Plantear una alternativa centrada en la privacidad, evitando los muros de pago artificiales para ganar ventaja competitiva y reducir las fricciones de las apps legacy."
+  process:
+    heading: "Proceso"
+    description: "El camino parte de una Deep Research sobre la evolución y disrupción en apps de gastos compartidos. Tras la exploración de soluciones y su viabilidad económica, se plantea el flujo de usuario y wireframes. En paralelo al diseño UI se definen requerimientos de desarrollo siguiendo la metodología Spec-driven development."
+    steps:
+      - label: "Research"
+        description: "Análisis de apps legacy e ideación de soluciones"
+      - label: "Prototyping"
+        description: "User flow · Wireframes"
+      - label: "Design"
+        description: "Design · UI Kit"
+      - label: "Desarrollo"
+        description: "Spec-driven development"
+  features:
+    heading: "Proyecto"
+    description: "Split4Me sigue un enfoque de fricción cero que se basa en dos pilares: autenticación diferida, permitiendo que la aplicación sea plenamente funcional de inmediato sin registro previo. Y la arquitectura local-first que descentraliza el almacenamiento de datos en el dispositivo del cliente."
+    items:
+      - title: "Sincronización en nubes personales"
+        description: "En lugar de servidores corporativos, la sincronización entre dispositivos y los respaldos se realizan a través de las cuentas personales y cifradas del propio usuario, como iCloud Drive (Apple) y Google Drive (Android/Web)."
+        image: "/connect-storage.png"
+        imageAlt: "Conectar con cloud personal"
+      - title: "Procesamiento en el dispositivo"
+        description: "Tareas complejas como el OCR con IA para el escaneo de recibos se ejecutan localmente utilizando el hardware del terminal, lo que garantiza privacidad y reduce costos de red."
+        image: "/add-expense.png"
+        imageAlt: "Nuevo gasto via OCR o desde inputs"
+      - title: "Afilización fintech"
+        description: "Integra enlaces profundos (deep-links) para liquidar deudas a través de neobancos. Usuarios de alta frecuencia (viajeros de negocios o autónomos) pueden pagar por funciones avanzadas como exportación masiva a Excel/CSV o almacenamiento ilimitado de fotos de recibos."
+        image: "/settle.png"
+        imageAlt: "Componentes de interfaz para saldar la deuda"
+  externalLinks:
+    - type: figma
+      url: "https://www.figma.com/design/eHTvK8tdJGnNJVczk604tc/Split4Me-app?node-id=0-1&t=WwXreKz5zKxljHxt-1"
+      label: "Ver el proyecto en Figma"
+      ariaLabel: "Ver el proyecto en Figma"

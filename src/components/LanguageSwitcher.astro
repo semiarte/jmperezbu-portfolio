@@ -8,16 +8,16 @@ const esPath = getLocalePath('es');
 ---
 
 <div class="flex items-center gap-2 text-lg font-medium">
-  {currentLocale === 'es' ? (
-    <span class="text-teal-400">ES</span>
-  ) : (
-    <a href={esPath} data-lang-switch class="text-slate-300 hover:text-teal-400 transition-colors duration-200">ES</a>
-  )}
-  <span class="text-slate-500">|</span>
   {currentLocale === 'en' ? (
     <span class="text-teal-400">EN</span>
   ) : (
     <a href={enPath} data-lang-switch class="text-slate-300 hover:text-teal-400 transition-colors duration-200">EN</a>
+  )}
+  <span class="text-slate-500">|</span>
+  {currentLocale === 'es' ? (
+    <span class="text-teal-400">ES</span>
+  ) : (
+    <a href={esPath} data-lang-switch class="text-slate-300 hover:text-teal-400 transition-colors duration-200">ES</a>
   )}
 </div>
 

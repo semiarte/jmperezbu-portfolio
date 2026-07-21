@@ -1,7 +1,7 @@
 ---
 import Music from "./icons/Music.astro";
-import type { Locale } from '../i18n/types';
-import { getTranslations } from '../i18n/utils';
+import type { Locale } from "../i18n/types";
+import { getTranslations } from "../i18n/utils";
 
 interface Props {
   locale: Locale;
@@ -11,10 +11,34 @@ const { locale } = Astro.props;
 const t = getTranslations(locale);
 ---
 
-<footer class="max-w-xl mx-auto text-center text-sm py-20 px-8 text-slate-400 leading-relaxed">
+<footer
+  class="max-w-2xl mx-auto text-center text-sm py-20 px-8 text-slate-400 leading-relaxed"
+>
   <div class="flex items-center justify-center gap-2 text-teal-400 mb-1.5">
     <Music size={18} />
-    <p><a href="https://open.spotify.com/intl-es/track/1TllKdIw8xYhOVbRU0G9At?si=97471eed00484384" target="_blank" class="text-teal-400 inline-flex relative items-center after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-0 after:h-0.5 after:bg-teal-400 after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200" rel="noopener">Something to say</a></p>
+    <p>
+      <a
+        href="https://open.spotify.com/intl-es/track/1TllKdIw8xYhOVbRU0G9At?si=97471eed00484384"
+        target="_blank"
+        class="text-teal-400 inline-flex relative items-center after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-0 after:h-0.5 after:bg-teal-400 after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200"
+        rel="noopener">Something to say</a
+      >
+    </p>
   </div>
-  <p>{t.footer.description}</p>
+  <p>
+    {locale === "en" ? "Designed in" : "Diseñado en"}
+    <a
+      href="https://www.figma.com/design/7MEKtjsZTOnYxHQJHRAevS/personal-site?node-id=0-1&t=zyOGRW4THoOBWA7c-1"
+      target="_blank"
+      class="text-teal-400 inline-flex relative items-center after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-0 after:h-0.5 after:bg-teal-400 after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200"
+      rel="noopener">Figma</a
+    >
+    {t.footer.description}
+    <a
+      href="https://jmperezbu-garden.forestry.md/"
+      target="_blank"
+      class="text-teal-400 inline-flex relative items-center after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-0 after:h-0.5 after:bg-teal-400 after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200"
+      rel="noopener">{t.footer.linkText}</a
+    >
+  </p>
 </footer>

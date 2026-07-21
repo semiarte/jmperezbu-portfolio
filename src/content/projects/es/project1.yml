@@ -1,13 +1,56 @@
 title: "Donar App"
-description: "Una aplicación que ayuda a las empresas a facilitar las donaciones de sus empleados. La empresa asigna fondos a cada empleado para uso exclusivo a través de la app Donar, y el empleado elige el proyecto benéfico."
+description: "Una aplicación que ayuda a las empresas a facilitar las donaciones de sus empleados. La empresa asigna fondos a cada empleado para uso exclusivo a través de Donar App, y el empleado elige los proyectos benéficos que decida."
 technologies:
-  - Web design
-  - User Experience
   - App design
   - UX/UI
   - Figma
+  - Filament
 thumbnail: "/landing-Donar-App.png"
-demoUrl: "https://www.figma.com/deck/3AEzXOBxIc27xLISKbe1x2/Donar-App-Slides?node-id=1-48&t=ZP0TgjpESUJyFAC8-1"
+demoUrl: "/es/projects/donar-app"
 repoUrl: ""
 category: ""
 slug: "donar-app"
+pageContent:
+  intro:
+    mockupImage: "/iPhone.png"
+    mockupAlt: "Mockup de la pantalla principal de Donar App"
+    problemHeading: "Problema"
+    problemDescription: "Muchas compañías donan un porcentaje de sus beneficios a alguna ONG, pero los empleados no perciben o no sienten este altruismo."
+    solutionHeading: "Solución"
+    solutionDescription: "Transformar la solidaridad en una experiencia personal y significativa, al mismo tiempo que se fortalece la cultura corporativa y responsabilidad social de la empresa."
+  process:
+    heading: "Proceso"
+    description: "Mi proceso de diseño siguió un camino estructurado. Tras una lectura exhaustiva del briefing inicial, se inicia una investigación de mercado profunda y un análisis de la competencia, seguidos de un flujo de usuario y wireframes de baja fidelidad para definir la lógica. Herramientas de IA como Google Stitch agilizan la ideación del diseño de la interfaz de usuario."
+    steps:
+      - label: "Research"
+        description: "Análisis de la competencia"
+      - label: "Prototyping"
+        description: "User flow · Wireframes"
+      - label: "Design"
+        description: "Design · UI Kit"
+  features:
+    heading: "Proyecto"
+    description: "Donar App es una app diseñada para que los empleados de una empresa donen a los proyectos benéficos que deseen. Las empresas asignan a cada empleado este dinero de manera mensual."
+    items:
+      - title: "Decide tus causas"
+        description: "La app está dirigida a tantos perfiles de usuarios como empleados puede haber en cualquier empresa. Mientras una persona puede sentirse preocupada por el medio ambiente, otra quiere resolver problemas sociales."
+        image: "/categories.png"
+        imageAlt: "Pantalla de categorías con búsqueda y filtros"
+      - title: "Crowdfunding"
+        description: "Con una filosofía similar a las plataformas de crowdfunding, la app plantea objetivos de recaudación para los proyectos solidarios. Las personas ven el progreso en tiempo real y sienten que su contribución genera un cambio tangible."
+        image: "/card.png"
+        imageAlt: "Tarjeta de proyecto: Conservemos el corazón verde del mundo"
+  externalLinks:
+    - type: figma
+      url: "https://www.figma.com/design/W0gDpP7AmVUWtv4OyC8uOR/Donar-App-Project?node-id=0-1&p=f&t=7VzbsworcVBMcj9s-0"
+      label: "Ver el proyecto en Figma"
+      ariaLabel: "Ver el proyecto en Figma"
+    - type: github
+      url: "https://github.com/semiarte/budget-manager"
+      label: "Ir al repositorio en github"
+      ariaLabel: "Ir al repositorio en github"
+  additionalSection:
+    heading: "Budget manager"
+    description: "Se desarrolla una aplicación de gestión presupuestaria que permite a los managers gestionar y distribuir el presupuesto anual entre sus empleados de forma mensual. El manager configura su presupuesto anual y el sistema controla que las asignaciones no superen el total disponible."
+    image: "/budget-manager.png"
+    imageAlt: "Aplicación web para la gestión del presupuesto"

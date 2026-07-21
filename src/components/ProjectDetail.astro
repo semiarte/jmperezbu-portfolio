@@ -1,0 +1,240 @@
+---
+import Figma from "./icons/Figma.astro";
+import Github from "./icons/Github.astro";
+import ExternalLink from "./icons/ExternalLink.astro";
+
+interface Props {
+  title: string;
+  pageContent: {
+    intro: {
+      mockupImage: string;
+      mockupAlt: string;
+      problemHeading: string;
+      problemDescription: string;
+      solutionHeading: string;
+      solutionDescription: string;
+    };
+    process: {
+      heading: string;
+      description: string;
+      steps: Array<{ label: string; description: string }>;
+    };
+    features: {
+      heading: string;
+      description: string;
+      items: Array<{
+        title: string;
+        description: string;
+        image: string;
+        imageAlt: string;
+      }>;
+    };
+    externalLinks: Array<{
+      type: "figma" | "github" | "web";
+      url: string;
+      label: string;
+      ariaLabel: string;
+    }>;
+    additionalSection?: {
+      heading: string;
+      description: string;
+      image: string;
+      imageAlt: string;
+    };
+  };
+}
+
+const { title, pageContent } = Astro.props;
+const { intro, process, features, externalLinks, additionalSection } =
+  pageContent;
+---
+
+<main class="flex-1 max-w-7xl mx-auto">
+  <!-- project intro (hero-style animation) -->
+  <section
+    id="project-intro"
+    aria-label={`${title} intro section`}
+    class="max-w-5xl pt-40 pb-16 md:pb-32 px-6 md:px-16"
+  >
+    <h1
+      class="hero-animate hero-animate-delay-1 text-2xl md:text-4xl font-semibold text-center mb-20"
+    >
+      {title}
+    </h1>
+    <div
+      class="hero-animate hero-animate-delay-2 relative flex flex-col md:flex-row items-center gap-8"
+    >
+      <!-- Decorative ellipse gradient glow behind mockup -->
+      <div
+        class="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/4 w-[80%] h-[80%] rounded-full bg-[#18246E] opacity-60 blur-[80px] rotate-[11.65deg] pointer-events-none -z-0"
+        aria-hidden="true"
+      >
+      </div>
+      <img
+        class="relative z-10 w-full md:max-w-[50%]"
+        src={intro.mockupImage}
+        alt={intro.mockupAlt}
+      />
+      <div
+        class="hero-animate hero-animate-delay-3 relative z-10 flex flex-col gap-4"
+      >
+        <div class="border border-slate-400 rounded-lg py-5 px-6">
+          <h3 class="text-xl font-semibold mb-2">{intro.problemHeading}</h3>
+          <p class="body-small">{intro.problemDescription}</p>
+        </div>
+        <div class="border border-slate-400 rounded-lg py-5 px-6">
+          <h3 class="text-xl font-semibold mb-2">{intro.solutionHeading}</h3>
+          <p class="body-small">{intro.solutionDescription}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Process section -->
+  <section
+    id="process"
+    aria-label={`${title} process section`}
+    class="max-w-5xl pb-16 md:pb-32 px-6 md:px-16"
+  >
+    <div class="scroll-reveal" style="transition-delay: 0ms">
+      <div class="flex flex-col md:flex-row gap-4 md:gap-16 mb-8 md:mb-16">
+        <h2 class="text-2xl md:text-3xl font-semibold">{process.heading}</h2>
+        <p class="text-base md:text-lg text-slate-300">{process.description}</p>
+      </div>
+    </div>
+    <div class="scroll-reveal" style="transition-delay: 100ms">
+      <div class="flex flex-col gap-4">
+        {
+          process.steps[0] && (
+            <div class="bg-(--navy-400) rounded-3xl p-5 md:mr-[25%]">
+              <h3 class="h3">{process.steps[0].label}</h3>
+              <p class="body-small">{process.steps[0].description}</p>
+            </div>
+          )
+        }
+        {
+          process.steps.length > 1 && (
+            <div class="grid md:grid-cols-2 gap-4 md:ml-[25%]">
+              {process.steps[1] && (
+                <div class="bg-(--navy-400) rounded-3xl p-5">
+                  <h3 class="h3">{process.steps[1].label}</h3>
+                  <p class="body-small">{process.steps[1].description}</p>
+                </div>
+              )}
+              {process.steps[2] && (
+                <div class="bg-linear-(--design-gradient) rounded-3xl p-5">
+                  <h3 class="h3">{process.steps[2].label}</h3>
+                  <p class="body-small">{process.steps[2].description}</p>
+                </div>
+              )}
+            </div>
+          )
+        }
+        {
+          process.steps.length > 3 &&
+            process.steps.slice(3).map((step) => (
+              <div class="bg-linear-(--design-gradient) rounded-3xl p-5 md:ml-[63.3333%]">
+                <h3 class="h3">{step.label}</h3>
+                <p class="body-small">{step.description}</p>
+              </div>
+            ))
+        }
+      </div>
+    </div>
+  </section>
+  <!-- Project details section -->
+  <section
+    id="project-details"
+    aria-label={`${title} project details section`}
+    class="max-w-5xl pb-16 md:pb-32 px-6 md:px-16"
+  >
+    <div class="scroll-reveal" style="transition-delay: 0ms">
+      <div class="flex flex-col md:flex-row gap-4 md:gap-16 mb-16">
+        <h2 class="text-2xl md:text-3xl font-semibold">{features.heading}</h2>
+        <p class="text-base md:text-lg text-slate-300">
+          {features.description}
+        </p>
+      </div>
+    </div>
+    <div class="flex flex-col gap-12">
+      {
+        features.items.map((item, index) => (
+          <div
+            class="scroll-reveal"
+            style={`transition-delay: ${(index + 1) * 100}ms`}
+          >
+            <div
+              class={`flex flex-col ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} justify-between items-center gap-12`}
+            >
+              <div>
+                <h3 class="text-xl md:text-2xl font-semibold mb-5">
+                  {item.title}
+                </h3>
+                <p class="text-base md:text-lg text-slate-300">
+                  {item.description}
+                </p>
+              </div>
+              <img
+                class="w-full md:max-w-80"
+                src={item.image}
+                alt={item.imageAlt}
+              />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+  <!-- More Info (conditional) -->
+  {
+    additionalSection && (
+      <section
+        id="more-info"
+        aria-label={`${title} extra information`}
+        class="max-w-5xl pb-10 px-6 md:px-16"
+      >
+        <div class="scroll-reveal" style="transition-delay: 0ms">
+          <div class="flex flex-col gap-3">
+            <h2 class="text-2xl md:text-3xl font-semibold">
+              {additionalSection.heading}
+            </h2>
+            <p class="text-base md:text-lg text-slate-300">
+              {additionalSection.description}
+            </p>
+            <img
+              src={additionalSection.image}
+              alt={additionalSection.imageAlt}
+            />
+          </div>
+        </div>
+      </section>
+    )
+  }
+  <!-- external links -->
+  <section
+    id="external"
+    aria-label={`${title} external links`}
+    class="flex flex-col sm:flex-row justify-center items-center gap-6"
+  >
+    <div class="scroll-reveal" style="transition-delay: 0ms">
+      <div class="flex flex-col sm:flex-row gap-6">
+        {
+          externalLinks.map((link) => (
+            <a
+              class="flex gap-2 min-h-11"
+              href={link.url}
+              target="_blank"
+              aria-label={link.ariaLabel}
+            >
+              {link.type === "figma" && <Figma />}
+              {link.type === "github" && <Github />}
+              {link.type === "web" && <ExternalLink />}
+              <span class="text-base text-teal-400 inline-flex relative items-center after:content-[''] after:absolute after:left-0 after:right-0 after:bottom-0 after:h-0.5 after:bg-teal-400 after:origin-left after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200">
+                {link.label}
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</main>

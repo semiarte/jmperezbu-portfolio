@@ -13,12 +13,25 @@ interface Props {
 const { locale } = Astro.props;
 const t = getTranslations(locale);
 
+const currentPath = Astro.url.pathname;
+const isHomepage = currentPath === '/' || currentPath === '/es/' || currentPath === '/es';
+const homepageBase = locale === 'es' ? '/es/' : '/';
+
+function getNavHref(anchor: string): string {
+  if (isHomepage) return anchor;
+  return `${homepageBase}${anchor}`;
+}
+
 const navigationLinks = [
-  { label: t.nav.experience, path: '#experience' },
-  { label: t.nav.projects, path: '#projects' },
-  { label: t.nav.contact, path: '#contact' },
+  { label: t.nav.experience, path: getNavHref("#experience") },
+  { label: t.nav.projects, path: getNavHref("#projects") },
+  { label: t.nav.contact, path: getNavHref("#contact") },
 ];
 const authorName = siteConfig.author.name;
+const resumeUrl =
+  locale === "es"
+    ? "https://jmperezbu-cv.netlify.app/index-es"
+    : "https://jmperezbu-cv.netlify.app/";
 ---
 
 <header id="main-header" class="fixed w-full z-50 py-6 px-4 md:px-0">
@@ -29,7 +42,7 @@ const authorName = siteConfig.author.name;
     <!-- Desktop Navigation -->
     <div id="desktop-nav" class="hidden md:flex items-center justify-between">
       <a
-        href="#hero"
+        href={getNavHref("#hero")}
         data-nav-link
         class="font-medium text-2xl text-slate-200 tracking-wide"
         >{authorName}</a
@@ -48,8 +61,8 @@ const authorName = siteConfig.author.name;
         }
         <LanguageSwitcher />
         <a
-          class="text-lg font-medium text-teal-400 border border-teal-400 hover:scale-105 transition-all duration-200 rounded-full px-4 py-2"
-          href="https://jmperezbu-cv.netlify.app/"
+          class="text-lg font-medium text-teal-400 border border-teal-400 hover:scale-105 focus-visible:scale-105 transition-all duration-200 rounded-full px-4 py-2"
+          href={resumeUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -63,7 +76,7 @@ const authorName = siteConfig.author.name;
       class="md:hidden flex justify-between items-center transition-all duration-300 px-8"
     >
       <a
-        href="#hero"
+        href={getNavHref("#hero")}
         data-nav-link
         class="font-medium text-xl text-slate-200 tracking-wide">{authorName}</a
       >
@@ -97,7 +110,7 @@ const authorName = siteConfig.author.name;
         <LanguageSwitcher />
         <a
           class="text-base text-center font-medium text-teal-400 border border-teal-400 hover:scale-105 transition-all duration-200 rounded-full mt-4 px-6 py-3"
-          href="https://jmperezbu-cv.netlify.app/"
+          href={resumeUrl}
           target="_blank"
           rel="noopener noreferrer"
         >

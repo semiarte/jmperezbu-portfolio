@@ -3,12 +3,14 @@
 :root {
   --dark-navy: hsl(216, 65%, 11%);
   --navy: hsl(214, 64%, 13%);
+  --navy-400: hsl(216, 55%, 14%);
   --shadow: 3px 3px 0 0;
   --translate: -4px;
   --header-height: 3rem;
+  --design-gradient: 135deg, hsl(224, 76%, 24%) 0%, hsl(217, 91%, 45%) 100%;
 }
 
-@media (width >= 768px) {
+@media (width >=768px) {
   :root {
     --header-height: 4rem;
   }
@@ -29,6 +31,7 @@ body {
     opacity: 0;
     transform: translateY(24px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -39,12 +42,15 @@ body {
   opacity: 0;
   animation: slideUpFadeIn 0.6s ease-out forwards;
 }
+
 .hero-animate-delay-1 {
   animation-delay: 0ms;
 }
+
 .hero-animate-delay-2 {
   animation-delay: 180ms;
 }
+
 .hero-animate-delay-3 {
   animation-delay: 360ms;
 }
@@ -55,6 +61,7 @@ body {
   transform: translateY(40px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+
 .scroll-reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
@@ -65,6 +72,7 @@ body {
     opacity: 0;
     transform: translateY(40px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -84,6 +92,7 @@ body {
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
+
   .hero-animate,
   .scroll-reveal,
   .scroll-reveal-native {

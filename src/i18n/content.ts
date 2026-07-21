@@ -12,8 +12,8 @@ export async function getLocalizedExperience(locale: Locale) {
 export async function getLocalizedProjects(locale: Locale) {
   const allProjects = await getCollection('projects');
   // Filter by locale prefix in the ID
-  const localeProjects = allProjects.filter(p => p.id.startsWith(`${locale}/`));
-  const fallbackProjects = allProjects.filter(p => p.id.startsWith('en/'));
+  const localeProjects = allProjects.filter(p => p.id.startsWith(`${locale}/`)).sort((a, b) => a.id.localeCompare(b.id));
+  const fallbackProjects = allProjects.filter(p => p.id.startsWith('en/')).sort((a, b) => a.id.localeCompare(b.id));
 
   if (localeProjects.length > 0) return localeProjects;
   return fallbackProjects;

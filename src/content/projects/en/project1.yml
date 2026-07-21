@@ -1,13 +1,56 @@
 title: "Donar App"
 description: "An app that helps companies enable their employees to donate easily. The company allocates funds to each employee for use exclusively through the Donar App, and the employee chooses the charitable project."
 technologies:
-  - Web design
-  - User Experience
   - App design
   - UX/UI
   - Figma
+  - Filament
 thumbnail: "/landing-Donar-App.png"
-demoUrl: "https://www.figma.com/deck/3AEzXOBxIc27xLISKbe1x2/Donar-App-Slides?node-id=1-48&t=ZP0TgjpESUJyFAC8-1"
+demoUrl: "/projects/donar-app"
 repoUrl: ""
 category: ""
 slug: "donar-app"
+pageContent:
+  intro:
+    mockupImage: "/iPhone.png"
+    mockupAlt: "Mockup of the Donar App main screen"
+    problemHeading: "Problem"
+    problemDescription: "Many companies donate a percentage of their profits to NGOs, but employees don't perceive or feel this altruism."
+    solutionHeading: "Solution"
+    solutionDescription: "Transform solidarity into a personal and meaningful experience, while strengthening corporate culture and the company's social responsibility."
+  process:
+    heading: "Process"
+    description: "My design process followed a structured path. After a thorough reading of the initial briefing, a deep market research and competitor analysis begins, followed by user flows and low-fidelity wireframes to define the logic. AI tools like Google Stitch streamline UI design ideation."
+    steps:
+      - label: "Research"
+        description: "Competitor analysis"
+      - label: "Prototyping"
+        description: "User flow · Wireframes"
+      - label: "Design"
+        description: "Design · UI Kit"
+  features:
+    heading: "Project"
+    description: "Donar App is an app designed for company employees to donate to the charitable projects they choose. Companies assign each employee this budget on a monthly basis."
+    items:
+      - title: "Choose your causes"
+        description: "The app targets as many user profiles as there are employees in any company. While one person may feel concerned about the environment, another wants to solve social issues."
+        image: "/categories.png"
+        imageAlt: "Categories screen with search and filters"
+      - title: "Crowdfunding"
+        description: "With a philosophy similar to crowdfunding platforms, the app sets fundraising goals for charitable projects. People see progress in real time and feel that their contribution creates tangible change."
+        image: "/card.png"
+        imageAlt: "Project card: Let's preserve the green heart of the world"
+  externalLinks:
+    - type: figma
+      url: "https://www.figma.com/design/W0gDpP7AmVUWtv4OyC8uOR/Donar-App-Project?node-id=0-1&p=f&t=7VzbsworcVBMcj9s-0"
+      label: "View the project in Figma"
+      ariaLabel: "View the project in Figma"
+    - type: github
+      url: "https://github.com/semiarte/budget-manager"
+      label: "Go to the GitHub repository"
+      ariaLabel: "Go to the GitHub repository"
+  additionalSection:
+    heading: "Budget manager"
+    description: "A budget management application that allows managers to manage and distribute the annual budget among their employees on a monthly basis. The manager sets up their annual budget and the system ensures that allocations do not exceed the total available."
+    image: "/budget-manager.png"
+    imageAlt: "Web application for budget management"
