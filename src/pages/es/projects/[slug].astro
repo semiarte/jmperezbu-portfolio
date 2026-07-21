@@ -1,6 +1,7 @@
 ---
 import { getLocalizedProjects } from '../../../i18n/content';
 import type { Locale } from '../../../i18n/types';
+import { getTranslations, getLocalePath } from '../../../i18n/utils';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
@@ -8,17 +9,34 @@ import ProjectDetail from '../../../components/ProjectDetail.astro';
 
 export async function getStaticPaths() {
   const locale: Locale = 'es';
-  const projects = await getLocalizedProjects(locale);
+  const allProjects = await getLocalizedProjects(locale);
+  const projects = allProjects.filter(p => p.data.pageContent && p.data.slug);
+  const total = projects.length;
 
-  return projects
-    .filter(p => p.data.pageContent && p.data.slug)
-    .map(p => ({
+  return projects.map((p, index) => {
+    // Linear order, no wrap-around: the first project has no "previous"
+    // and the last has no "next", like posts in a blog.
+    const prev = index > 0 ? projects[index - 1] : undefined;
+    const next = index < total - 1 ? projects[index + 1] : undefined;
+
+    return {
       params: { slug: p.data.slug },
-      props: { project: p.data, locale },
-    }));
+      props: {
+        project: p.data,
+        locale,
+        prevProject: prev
+          ? { title: prev.data.title, href: prev.data.demoUrl ?? getLocalePath(locale, `projects/${prev.data.slug}`) }
+          : undefined,
+        nextProject: next
+          ? { title: next.data.title, href: next.data.demoUrl ?? getLocalePath(locale, `projects/${next.data.slug}`) }
+          : undefined,
+      },
+    };
+  });
 }
 
-const { project, locale } = Astro.props;
+const { project, locale, prevProject, nextProject } = Astro.props;
+const t = getTranslations(locale);
 const pageContent = project.pageContent as Parameters<typeof ProjectDetail>[0]['pageContent'];
 ---
 
@@ -30,7 +48,14 @@ const pageContent = project.pageContent as Parameters<typeof ProjectDetail>[0]['
 >
   <div class="min-h-screen flex flex-col bg-linear-180 from-(--navy) to-(--dark-navy) text-slate-200 scroll-smooth">
     <Header locale={locale} />
-    <ProjectDetail title={project.title} pageContent={pageContent} />
+    <ProjectDetail
+      title={project.title}
+      pageContent={pageContent}
+      prevProject={prevProject}
+      nextProject={nextProject}
+      prevLabel={t.projectNav.previousProject}
+      nextLabel={t.projectNav.nextProject}
+    />
     <Footer locale={locale} />
   </div>
 </BaseLayout>
