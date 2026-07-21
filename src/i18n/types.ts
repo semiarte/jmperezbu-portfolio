@@ -45,6 +45,10 @@ export interface TranslationStrings {
     contact: string;
     resume: string;
   };
+  projectNav: {
+    previousProject: string;
+    nextProject: string;
+  };
   hero: {
     scrollToExplore: string;
   };

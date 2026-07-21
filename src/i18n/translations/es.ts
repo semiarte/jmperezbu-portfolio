@@ -7,6 +7,10 @@ export const es: TranslationStrings = {
     contact: 'Contacto',
     resume: 'Currículum',
   },
+  projectNav: {
+    previousProject: 'Proyecto anterior',
+    nextProject: 'Siguiente proyecto',
+  },
   hero: {
     scrollToExplore: 'Desplázate para explorar',
   },
