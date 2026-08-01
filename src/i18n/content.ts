@@ -9,6 +9,13 @@ export async function getLocalizedExperience(locale: Locale) {
   return (localeEntry ?? fallbackEntry)?.data.experience ?? [];
 }
 
+export async function getLocalizedChatbotTree(locale: Locale) {
+  const allTrees = await getCollection('chatbot');
+  const localeEntry = allTrees.find(t => t.id === `${locale}`);
+  const fallbackEntry = allTrees.find(t => t.id === 'en');
+  return (localeEntry ?? fallbackEntry)?.data.nodes ?? [];
+}
+
 export async function getLocalizedProjects(locale: Locale) {
   const allProjects = await getCollection('projects');
   // Filter by locale prefix in the ID

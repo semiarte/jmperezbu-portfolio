@@ -1,0 +1,191 @@
+---
+import type { Locale } from "../i18n/types";
+import { getTranslations } from "../i18n/utils";
+import {
+  getLocalizedChatbotTree,
+  getLocalizedExperience,
+  getLocalizedProjects,
+} from "../i18n/content";
+import { getLocalePath } from "../i18n/utils";
+import { siteConfig } from "../data/site";
+import Chat from "./icons/Chat.astro";
+import X from "./icons/X.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+interface ChatbotOption {
+  label: string;
+  next?: string;
+  action?: { type: "scroll" | "link" | "restart"; target?: string };
+}
+
+interface ChatbotNode {
+  id: string;
+  message: string;
+  options: ChatbotOption[];
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+
+const curatedNodes = await getLocalizedChatbotTree(locale);
+const experience = await getLocalizedExperience(locale);
+const projects = await getLocalizedProjects(locale);
+
+const experienceListNode: ChatbotNode = {
+  id: "experience-list",
+  message: t.chatbot.experienceIntro,
+  options: [
+    ...experience.map((entry, index) => ({
+      label: `${entry.position} · ${entry.company}`,
+      next: `experience-${index}`,
+    })),
+    { label: t.chatbot.backToStartLabel, action: { type: "restart" as const } },
+  ],
+};
+
+const experienceDetailNodes: ChatbotNode[] = experience.map((entry, index) => ({
+  id: `experience-${index}`,
+  message: `${entry.position} · ${entry.company} (${entry.period}). ${entry.description}`,
+  options: [
+    {
+      label: t.chatbot.visitSiteLabel,
+      action: { type: "link" as const, target: entry.url },
+    },
+    { label: t.chatbot.experienceBackLabel, next: "experience-list" },
+    { label: t.chatbot.backToStartLabel, action: { type: "restart" as const } },
+  ],
+}));
+
+const projectsListNode: ChatbotNode = {
+  id: "projects-list",
+  message: t.chatbot.projectsIntro,
+  options: [
+    ...projects
+      .filter((p) => p.data.slug)
+      .map((p) => ({ label: p.data.title, next: `project-${p.data.slug}` })),
+    { label: t.chatbot.backToStartLabel, action: { type: "restart" as const } },
+  ],
+};
+
+const projectDetailNodes: ChatbotNode[] = projects
+  .filter((p) => p.data.slug)
+  .map((p) => ({
+    id: `project-${p.data.slug}`,
+    message: `${p.data.title}. ${p.data.description}`,
+    options: [
+      {
+        label: t.chatbot.viewProjectLabel,
+        action: { type: "link" as const, target: p.data.demoUrl },
+      },
+      { label: t.chatbot.projectsBackLabel, next: "projects-list" },
+      {
+        label: t.chatbot.backToStartLabel,
+        action: { type: "restart" as const },
+      },
+    ],
+  }));
+
+const contactUrls = {
+  email: siteConfig.author.email,
+  github: `https://github.com/${siteConfig.author.github}`,
+  linkedin: `https://www.linkedin.com/in/${siteConfig.author.linkedin}/?locale=en-US`,
+};
+
+const curatedContactNode = curatedNodes.find((n) => n.id === "contact");
+const contactNode: ChatbotNode | undefined = curatedContactNode && {
+  ...curatedContactNode,
+  options: [
+    {
+      label: t.chatbot.emailLabel,
+      action: { type: "link" as const, target: `mailto:${contactUrls.email}` },
+    },
+    {
+      label: t.chatbot.linkedinLabel,
+      action: { type: "link" as const, target: contactUrls.linkedin },
+    },
+    {
+      label: t.chatbot.githubLabel,
+      action: { type: "link" as const, target: contactUrls.github },
+    },
+    ...curatedContactNode.options,
+  ],
+};
+
+const allNodes: ChatbotNode[] = [
+  ...curatedNodes,
+  experienceListNode,
+  ...experienceDetailNodes,
+  projectsListNode,
+  ...projectDetailNodes,
+  ...(contactNode ? [contactNode] : []),
+];
+
+const tree = Object.fromEntries(allNodes.map((node) => [node.id, node]));
+const homeUrl = getLocalePath(locale);
+---
+
+<div
+  id="chatbot-root"
+  class="fixed bottom-6 right-6 z-50"
+  data-home-url={homeUrl}
+>
+  <button
+    id="chatbot-toggle"
+    aria-label={t.chatbot.toggleAriaLabel}
+    aria-expanded="false"
+    aria-controls="chatbot-panel"
+    class="flex items-center justify-center w-14 h-14 rounded-full bg-teal-400 text-teal-950 shadow-lg hover:scale-105 focus-visible:scale-105 transition-transform duration-200"
+  >
+    <Chat size={26} />
+  </button>
+
+  <div
+    id="chatbot-panel"
+    role="dialog"
+    aria-modal="true"
+    aria-label={t.chatbot.panelTitle}
+    hidden
+    class="absolute bottom-20 right-0 flex flex-col w-[min(22rem,calc(100vw-3rem))] max-h-[min(32rem,calc(100vh-8rem))] rounded-2xl border border-slate-700 bg-(--dark-navy) shadow-2xl overflow-hidden"
+  >
+    <div
+      class="flex items-center justify-between px-4 py-3 border-b border-b-slate-700"
+    >
+      <h2 class="text-base tracking-wide text-slate-200">
+        {t.chatbot.panelTitle}
+      </h2>
+      <button
+        id="chatbot-close"
+        aria-label={t.chatbot.closeAriaLabel}
+        class="p-1 rounded-md text-slate-300 hover:text-teal-400 transition-colors cursor-pointer"
+      >
+        <X size={20} />
+      </button>
+    </div>
+
+    <div
+      id="chatbot-log"
+      role="log"
+      aria-live="polite"
+      aria-relevant="additions"
+      class="flex-1 overflow-y-auto px-4 py-3 space-y-3 text-base tracking-wide text-slate-200"
+    >
+    </div>
+
+    <div
+      id="chatbot-options"
+      class="flex flex-col gap-2 px-4 py-3 border-t border-t-slate-700"
+    >
+    </div>
+  </div>
+</div>
+
+<script
+  type="application/json"
+  id="chatbot-tree"
+  set:html={JSON.stringify(tree)}
+/>
+
+<script src="../scripts/chatbot.js"></script>

@@ -1,0 +1,32 @@
+nodes:
+  - id: "start"
+    message: "¡Hola! Soy el asistente de este portafolio. ¿Qué te gustaría explorar?"
+    options:
+      - label: "Sobre mí"
+        next: "about"
+      - label: "Experiencia"
+        next: "experience-list"
+      - label: "Proyectos"
+        next: "projects-list"
+      - label: "Contacto"
+        next: "contact"
+  - id: "about"
+    message: "Soy José Miguel Pérez, desarrollador frontend y diseñador UX/UI con más de 10 años de experiencia, especializado en el diseño y desarrollo de interfaces accesibles y eficientes. Transformo ideas en soluciones digitales funcionales."
+    options:
+      - label: "Ver experiencia"
+        next: "experience-list"
+      - label: "Ver proyectos"
+        next: "projects-list"
+      - label: "Volver al inicio"
+        action:
+          type: "restart"
+  - id: "contact"
+    message: "Puedes escribirme directamente o encontrarme en redes sociales. Te llevo a la sección de contacto."
+    options:
+      - label: "Ir a contacto"
+        action:
+          type: "scroll"
+          target: "#contact"
+      - label: "Volver al inicio"
+        action:
+          type: "restart"
