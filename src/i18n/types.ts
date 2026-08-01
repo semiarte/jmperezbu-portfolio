@@ -78,4 +78,20 @@ export interface TranslationStrings {
   };
   donarApp: ProjectPageTranslations;
   split4meApp: ProjectPageTranslations;
+  chatbot: {
+    toggleAriaLabel: string;
+    panelTitle: string;
+    closeAriaLabel: string;
+    restartLabel: string;
+    backToStartLabel: string;
+    experienceIntro: string;
+    experienceBackLabel: string;
+    visitSiteLabel: string;
+    projectsIntro: string;
+    projectsBackLabel: string;
+    viewProjectLabel: string;
+    emailLabel: string;
+    linkedinLabel: string;
+    githubLabel: string;
+  };
 }

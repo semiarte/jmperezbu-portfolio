@@ -72,4 +72,26 @@ const experience = defineCollection({
   }),
 });
 
-export const collections = { projects, experience };
+const chatbot = defineCollection({
+  type: "data",
+  schema: z.object({
+    nodes: z.array(
+      z.object({
+        id: z.string(),
+        message: z.string(),
+        options: z.array(
+          z.object({
+            label: z.string(),
+            next: z.string().optional(),
+            action: z.object({
+              type: z.enum(['scroll', 'link', 'restart']),
+              target: z.string().optional(),
+            }).optional(),
+          })
+        ),
+      })
+    ),
+  }),
+});
+
+export const collections = { projects, experience, chatbot };

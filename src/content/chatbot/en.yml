@@ -1,0 +1,32 @@
+nodes:
+  - id: "start"
+    message: "Hi! I'm this portfolio's assistant. What would you like to explore?"
+    options:
+      - label: "About me"
+        next: "about"
+      - label: "Experience"
+        next: "experience-list"
+      - label: "Projects"
+        next: "projects-list"
+      - label: "Contact"
+        next: "contact"
+  - id: "about"
+    message: "I'm José Miguel Pérez, a frontend developer and UX/UI designer with 10+ years of experience, specialized in the design and development of accessible and efficient interfaces. I transform ideas into functional digital solutions."
+    options:
+      - label: "See experience"
+        next: "experience-list"
+      - label: "See projects"
+        next: "projects-list"
+      - label: "Back to start"
+        action:
+          type: "restart"
+  - id: "contact"
+    message: "You can write to me directly or find me on social media. Let's go to the contact section."
+    options:
+      - label: "Go to contact"
+        action:
+          type: "scroll"
+          target: "#contact"
+      - label: "Back to start"
+        action:
+          type: "restart"

@@ -3,6 +3,7 @@ import '../styles/global.css';
 import type { Locale } from '../i18n/types';
 import { getLocalePath, getPathFragment } from '../i18n/utils';
 import defaultOgImage from '../assets/images/jmperez.jpg';
+import Chatbot from '../components/Chatbot.astro';
 
 interface Props {
   title: string;
@@ -49,6 +50,7 @@ const ogType = fragment.startsWith('projects/') ? 'article' : 'website';
   </head>
   <body class="min-h-full flex flex-col selection:bg-teal-400 selection:text-teal-950 font-[Geist,sans-serif]">
     <slot />
+    <Chatbot locale={locale} />
     <script src="../scripts/scroll-reveal.js"></script>
   </body>
 </html>
