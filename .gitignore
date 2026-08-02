@@ -23,4 +23,7 @@ go
 skills-lock.json
 
 # claude
-.claude/
+.claude/.firecrawl/
+
+# firecrawl
+.firecrawl/
