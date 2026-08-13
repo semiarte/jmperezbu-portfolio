@@ -40,6 +40,7 @@ export interface ProjectPageTranslations {
 
 export interface TranslationStrings {
   nav: {
+    about: string;
     experience: string;
     projects: string;
     contact: string;
@@ -67,6 +68,13 @@ export interface TranslationStrings {
   footer: {
     description: string;
     linkText: string;
+  };
+  about: {
+    heading: string;
+    paragraph1: string;
+    paragraph2: string;
+    gardenText: string;
+    gardenLinkText: string;
   };
   meta: {
     title: string;
