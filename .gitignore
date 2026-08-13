@@ -27,3 +27,8 @@ skills-lock.json
 
 # firecrawl
 .firecrawl/
+
+# claude
+.claude/
+.superpowers/
+docs/

@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Add a new "About me" section to the portfolio (between Hero and Experience) that introduces the author and closes with a contextual link to his digital garden, plus a matching "About" nav item.
+**Goal:** Add a new "About me" section to the portf/olio (between Hero and Experience) that introduces the author and closes with a contextual link to his digital garden, plus a matching "About" nav item.
 
 **Architecture:** New `About.astro` component follows the exact shape of the existing `Experience.astro` component (locale prop, `getTranslations`, `ScrollReveal`, `section[id]` for scroll-spy). New translation keys are added to both `en.ts` and `es.ts` and to the shared `TranslationStrings` type. The component is wired into both page entry points (`/` and `/es/`) and the nav link list in `Header.astro`.
 
