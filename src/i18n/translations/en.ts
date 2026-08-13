@@ -2,6 +2,7 @@ import type { TranslationStrings } from '../types';
 
 export const en: TranslationStrings = {
   nav: {
+    about: 'About',
     experience: 'Experience',
     projects: 'Projects',
     contact: 'Contact',
@@ -29,6 +30,13 @@ export const en: TranslationStrings = {
   footer: {
     description: 'and coded in Visual Studio Code by José Miguel Pérez. Built with Astro and Tailwind CSS, deployed with Netlify. Meanwhile, I tend',
     linkText: 'my garden',
+  },
+  about: {
+    heading: 'About me',
+    paragraph1: "I'm a frontend developer and UX/UI designer with 10+ years of experience turning ideas into functional digital products. I move comfortably between React, Laravel, and interface design, caring as much about the code as about the experience of the people who use it.",
+    paragraph2: 'I work with curiosity: I bring AI tools into my design and development process, and I spend time continuously learning about new frontend techniques, accessibility, and UI patterns.',
+    gardenText: 'I document that learning in my digital garden, a living collection of notes and experiments.',
+    gardenLinkText: 'Explore the garden',
   },
   meta: {
     title: 'José Miguel Pérez Buenaño - Frontend Developer & UX/UI Designer',
