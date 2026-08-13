@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Hero from '../../components/Hero.astro';
+import About from '../../components/About.astro';
 import Experience from '../../components/Experience.astro';
 import ProjectsSection from '../../components/ProjectsSection.astro';
 import Contact from '../../components/Contact.astro';
@@ -20,6 +21,7 @@ const t = getTranslations(locale);
     <Header locale={locale} />
     <main class="flex-1 max-w-7xl mx-auto">
       <Hero locale={locale} />
+      <About locale={locale} />
       <Experience locale={locale} />
       <ProjectsSection locale={locale} />
       <Contact locale={locale} />
