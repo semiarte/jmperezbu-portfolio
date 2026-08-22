@@ -18,6 +18,7 @@ const contactData = {
   email: siteConfig.author.email,
   github: `https://github.com/${siteConfig.author.github}`,
   linkedin: `https://www.linkedin.com/in/${siteConfig.author.linkedin}/?locale=en-US`,
+  bluesky: `https://bsky.app/profile/${siteConfig.author.bluesky}.bsky.social`,
 };
 ---
 
@@ -46,6 +47,7 @@ const contactData = {
         <ContactInfo
           githubUrl={contactData.github}
           linkedinUrl={contactData.linkedin}
+          blueskyUrl={contactData.bluesky}
         />
       </div>
       <Image

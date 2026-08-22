@@ -1,3 +1,5 @@
+import Bluesky from "../components/icons/Bluesky.astro";
+
 export const siteConfig = {
   name: "Portfolio",
   description: "Personal portfolio website",
@@ -8,6 +10,7 @@ export const siteConfig = {
     email: "jmperezbu@proton.me",
     github: "semiarte",
     linkedin: "semiarte",
+    bluesky: "elsemi",
   },
   navigation: [
     { label: "About", path: "#about" },
