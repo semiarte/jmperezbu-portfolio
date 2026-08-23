@@ -19,7 +19,7 @@ export const es: TranslationStrings = {
     heading: 'Experiencia',
   },
   projects: {
-    heading: 'Proyectos Destacados',
+    heading: 'Proyectos paralelos',
   },
   contact: {
     heading: 'Contáctame',
