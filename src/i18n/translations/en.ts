@@ -33,14 +33,14 @@ export const en: TranslationStrings = {
   },
   about: {
     heading: 'About me',
-    paragraph1: "I'm a frontend developer and UX/UI designer with 10+ years of experience turning ideas into functional digital products. I move comfortably between React, Laravel, and interface design, caring as much about the code as about the experience of the people who use it.",
+    paragraph1: "I'm a frontend developer and UX/UI designer with over 10 years of experience building complete digital products. I move seamlessly between interface design and modern web technologies, balancing user-centered thinking with robust coding practices.",
     paragraph2: 'I work with curiosity: I bring AI tools into my design and development process, and I spend time continuously learning about new frontend techniques, accessibility, and UI patterns.',
     gardenText: 'I document that learning in my digital garden, a living collection of notes and experiments.',
     gardenLinkText: 'Explore the garden',
   },
   meta: {
     title: 'José Miguel Pérez Buenaño - Frontend Developer & UX/UI Designer',
-    description: 'Frontend developer and UX/UI designer with 10+ years experience. Expert in React, Laravel, AI-assisted development, and web design.',
+    description: 'Frontend developer and UX/UI designer with over 10 years of experience turning complex problems into polished, scalable digital products.',
   },
   site: {
     authorTitle: 'Frontend Developer & UX/UI Designer',
