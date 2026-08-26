@@ -33,7 +33,7 @@ export const en: TranslationStrings = {
   },
   about: {
     heading: 'About me',
-    paragraph1: "I'm a frontend developer and UX/UI designer with over 10 years of experience building complete digital products. I move seamlessly between interface design and modern web technologies, balancing user-centered thinking with robust coding practices.",
+    paragraph1: "I'm a frontend developer and UX/UI designer with over 10 years of experience building digital products. I move seamlessly between interface design and modern web technologies, balancing user-centered thinking with robust coding practices.",
     paragraph2: 'I work with curiosity: I bring AI tools into my design and development process, and I spend time continuously learning about new frontend techniques, accessibility, and UI patterns.',
     gardenText: 'I document that learning in my digital garden, a living collection of notes and experiments.',
     gardenLinkText: 'Explore the garden',

@@ -33,7 +33,7 @@ export const es: TranslationStrings = {
   },
   about: {
     heading: 'Sobre mí',
-    paragraph1: 'Soy un desarrollador frontend y diseñador UX/UI con más de 10 años de experiencia creando productos digitales completos. Me muevo con fluidez entre el diseño de interfaces y las tecnologías web modernas, equilibrando el pensamiento centrado en el usuario con prácticas de programación sólidas.',
+    paragraph1: 'Soy un desarrollador frontend y diseñador UX/UI con más de 10 años de experiencia creando productos digitales. Me muevo con fluidez entre el diseño de interfaces y las tecnologías web modernas, equilibrando el pensamiento centrado en el usuario con prácticas de programación sólidas.',
     paragraph2: 'Trabajo con curiosidad: incorporo herramientas de IA en mi proceso de diseño y desarrollo, y dedico tiempo a aprender constantemente sobre nuevas técnicas de frontend, accesibilidad y patrones de UI.',
     gardenText: 'Documento ese aprendizaje en mi jardín digital, una colección viva de notas y experimentos.',
     gardenLinkText: 'Explorar el jardín',
