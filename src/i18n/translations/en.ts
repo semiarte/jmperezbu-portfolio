@@ -101,7 +101,7 @@ export const en: TranslationStrings = {
     mockupAlt: 'Mockup of the Split4Me App main screen',
     processAriaLabel: 'Split4Me app process section',
     processHeading: 'Process',
-    processDescription: 'The process starts with a Deep Research on the evolution and disruption of shared expense apps. After exploring solutions and their economic viability, the user flow and wireframes are defined. In parallel with UI design, development requirements are defined following the Spec-driven development methodology.',
+    processDescription: 'In-depth research into the evolution and disruption of shared-expense apps. Once economically viable solutions and alternatives have been explored, the user flow, low-fidelity wireframes, and finally design and development specifications are considered.',
     processSteps: {
       research: { label: 'Research', description: 'Legacy app analysis and solution ideation' },
       prototyping: { label: 'Prototyping', description: 'User flow · Wireframes' },

@@ -101,7 +101,7 @@ export const es: TranslationStrings = {
     mockupAlt: 'Mockup de la pantalla principal de Donar App',
     processAriaLabel: 'Split4Me app process section',
     processHeading: 'Proceso',
-    processDescription: 'El camino parte de una Deep Research sobre la evolución y disrupción en apps de gastos compartidos. Tras la exploración de soluciones y su viabilidad económica, se plantea el flujo de usuario y wireframes. En paralelo al diseño UI se definen requerimientos de desarrollo siguiendo la metodología Spec-driven development.',
+    processDescription: 'Investigación profunda de la evolución y disrupción en apps de gastos compartidos. Una vez exploradas soluciones y alternativas de viabilidad económica, se plantean el flujo de usuario, wireframes de baja fidelidad y finalmente las especificiones de diseño y de desarrollo.',
     processSteps: {
       research: { label: 'Research', description: 'Análisis de apps legacy e ideación de soluciones' },
       prototyping: { label: 'Prototyping', description: 'User flow · Wireframes' },

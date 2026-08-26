@@ -20,7 +20,7 @@ pageContent:
     solutionDescription: "Plantear una alternativa centrada en la privacidad, evitando los muros de pago artificiales para ganar ventaja competitiva y reducir las fricciones de las apps legacy."
   process:
     heading: "Proceso"
-    description: "El camino parte de una Deep Research sobre la evolución y disrupción en apps de gastos compartidos. Tras la exploración de soluciones y su viabilidad económica, se plantea el flujo de usuario y wireframes. En paralelo al diseño UI se definen requerimientos de desarrollo siguiendo la metodología Spec-driven development."
+    description: "El camino parte de una Deep Research sobre la evolución y disrupción en apps de gastos compartidos. Una vez exploradas soluciones y alternativas de viabilidad económica, se plantean el flujo de usuario, wireframes de baja fidelidad y finalmente las especificiones de diseño y de desarrollo."
     steps:
       - label: "Research"
         description: "Análisis de apps legacy e ideación de soluciones"
