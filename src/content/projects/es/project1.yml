@@ -24,10 +24,68 @@ pageContent:
     steps:
       - label: "Research"
         description: "Análisis de la competencia"
+        detail:
+          paragraphs:
+            - "La investigación se concreta al definir un conjunto de user personas que recojan los segmentos clave de usuarios, sus objetivos y sus puntos de dolor."
+            - "Posteriormente, se lleva a cabo un análisis de la competencia directa e indirecta para descubrir patrones de usabilidad y posibles mejoras. Se analizan tanto apps orientadas a donaciones directas mensuales como proyectos que solicitan donaciones para financiarse."
+          extra:
+            type: personas
+            items:
+              - avatar: "../../../assets/images/persona-lucia.png"
+                avatarAlt: "Retrato de Lucía, HR en una empresa de software"
+                name: "Lucía"
+                trait: "comprometida"
+                role: "HR en una empresa de software"
+                description: "Lucía lleva varios años involucrada en causas sociales por iniciativa propia: dona mensualmente a dos ONGs, participa en voluntariados puntuales y sigue de cerca temas de medioambiente."
+              - avatar: "../../../assets/images/persona-javier.png"
+                avatarAlt: "Retrato de Javier, analista financiero en una consultora"
+                name: "Javier"
+                trait: "escéptico"
+                role: "Analista financiero en una consultora"
+                description: "Javier tiene un ojo crítico frente a cualquier iniciativa corporativa que suene a buena imagen. No le es indiferente lo social, pero necesita evidencia y transparencia antes de involucrarse o confiar en algo."
       - label: "Prototyping"
         description: "User flow · Wireframes"
+        detail:
+          paragraphs:
+            - "Durante las primeras etapas del proyecto, se plantea un user flow que representa el recorrido que sigue el empleado hasta completar una donación. En este flujo se deciden dos puntos clave:"
+          bullets:
+            - "App de distribución interna (MDM)"
+            - "Tenant preconfigurado: el sistema de autenticación (SSO) correspondiente a cada empresa viene resuelto antes de que el usuario acceda a la app."
       - label: "Design"
         description: "Design · UI Kit"
+        detail:
+          paragraphs:
+            - "El diseño de alta fidelidad se basa directamente en el user flow y los wireframes de baja fidelidad, pero el proceso no termina ahí. La iteración continúa guiada por los principios de diseño atómico y la proporción de colores 60-30-10 para mantener la coherencia y el equilibrio del sistema a medida que evoluciona."
+          extra:
+            type: typeSystem
+            fontName: "Manrope font"
+            baseValue: "16"
+            scale: "1.071"
+            sizes:
+              - label: "Headline Large"
+                px: "24px"
+                rem: "1.500rem"
+              - label: "Headline medium"
+                px: "20px"
+                rem: "1.250rem"
+              - label: "Headline small"
+                px: "18px"
+                rem: "1.125rem"
+              - label: "Title Large"
+                px: "16px"
+                rem: "1.000rem"
+              - label: "Body medium"
+                px: "14px"
+                rem: "0.875rem"
+            colorRatio:
+              - value: "60"
+                colorClass: "bg-white text-(--navy)"
+              - value: "30"
+                colorClass: "bg-sky-500 text-white"
+              - value: "10"
+                colorClass: "bg-lime-400 text-(--navy)"
+            image: "../../../assets/images/donar-app-donations.png"
+            imageAlt: "Pantalla de historial de donaciones con el total donado y las contribuciones recientes"
   features:
     heading: "Proyecto"
     description: "Donar App es una app diseñada para que los empleados de una empresa donen a los proyectos benéficos que deseen. Las empresas asignan a cada empleado este dinero de manera mensual."
