@@ -20,16 +20,14 @@ pageContent:
     solutionDescription: "Propose a privacy-centered alternative, avoiding artificial paywalls to gain competitive advantage and reduce friction from legacy apps."
   process:
     heading: "Process"
-    description: "The process starts with a Deep Research on the evolution and disruption of shared expense apps. Once economically viable solutions and alternatives have been explored, the user flow, low-fidelity wireframes, and finally design and development specifications are considered."
+    description: "The process begins with research into the evolution and disruption in ride-sharing apps. Once economically viable solutions and alternatives have been explored, a decision is made on an MVP."
     steps:
       - label: "Research"
-        description: "Legacy app analysis and solution ideation"
+        description: "Legacy app analysis and product definition"
       - label: "Prototyping"
         description: "User flow · Wireframes"
       - label: "Design"
         description: "Design · UI Kit"
-      - label: "Development"
-        description: "Spec-driven development"
   features:
     heading: "Project"
     description: "Split4Me follows a zero-friction approach based on two pillars: deferred authentication, allowing the app to be fully functional immediately without previous registration, and a local-first architecture that decentralizes data storage on the client device."

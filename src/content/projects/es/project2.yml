@@ -20,10 +20,10 @@ pageContent:
     solutionDescription: "Plantear una alternativa centrada en la privacidad, evitando los muros de pago artificiales para ganar ventaja competitiva y reducir las fricciones de las apps legacy."
   process:
     heading: "Proceso"
-    description: "El camino parte de una Deep Research sobre la evolución y disrupción en apps de gastos compartidos. Una vez exploradas soluciones y alternativas de viabilidad económica, se plantean el flujo de usuario, wireframes de baja fidelidad y finalmente las especificiones de diseño y de desarrollo."
+    description: "El camino parte con la investigación de la evolución y disrupción en apps de gastos compartidos. Una vez exploradas soluciones y alternativas de viabilidad económica, se decide un MVP."
     steps:
       - label: "Research"
-        description: "Análisis de apps legacy e ideación de soluciones"
+        description: "Análisis de apps legacy y definción de producto"
       - label: "Prototyping"
         description: "User flow · Wireframes"
       - label: "Design"
