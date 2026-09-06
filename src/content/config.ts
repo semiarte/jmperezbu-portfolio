@@ -1,6 +1,51 @@
 import { defineCollection, z } from "astro:content";
 
-const pageContentSchema = ({ image }: { image: () => z.ZodType<ImageMetadata> }) => z.object({
+const pageContentSchema = ({ image }: { image: () => z.ZodType<ImageMetadata> }) => {
+  const personaSchema = z.object({
+    avatar: image(),
+    avatarAlt: z.string(),
+    name: z.string(),
+    trait: z.string(),
+    role: z.string(),
+    description: z.string(),
+  });
+
+  const processStepExtraSchema = z.discriminatedUnion("type", [
+    z.object({
+      type: z.literal("personas"),
+      items: z.array(personaSchema),
+    }),
+    z.object({
+      type: z.literal("story"),
+      heading: z.string(),
+      description: z.string(),
+      quote: z.string(),
+    }),
+    z.object({
+      type: z.literal("image"),
+      image: image(),
+      imageAlt: z.string(),
+    }),
+    z.object({
+      type: z.literal("typeSystem"),
+      fontName: z.string(),
+      baseValue: z.string(),
+      scale: z.string(),
+      sizes: z.array(z.object({
+        label: z.string(),
+        px: z.string(),
+        rem: z.string(),
+      })),
+      colorRatio: z.array(z.object({
+        value: z.string(),
+        colorClass: z.string(),
+      })),
+      image: image(),
+      imageAlt: z.string(),
+    }),
+  ]);
+
+  return z.object({
   intro: z.object({
     mockupImage: image(),
     mockupAlt: z.string(),
@@ -15,6 +60,11 @@ const pageContentSchema = ({ image }: { image: () => z.ZodType<ImageMetadata> })
     steps: z.array(z.object({
       label: z.string(),
       description: z.string(),
+      detail: z.object({
+        paragraphs: z.array(z.string()),
+        bullets: z.array(z.string()).optional(),
+        extra: processStepExtraSchema.optional(),
+      }).optional(),
     })),
   }),
   features: z.object({
@@ -39,7 +89,8 @@ const pageContentSchema = ({ image }: { image: () => z.ZodType<ImageMetadata> })
     image: image(),
     imageAlt: z.string(),
   }).optional(),
-});
+  });
+};
 
 const projects = defineCollection({
   type: "data",

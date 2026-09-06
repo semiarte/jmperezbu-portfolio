@@ -24,10 +24,28 @@ pageContent:
     steps:
       - label: "Research"
         description: "Análisis de apps legacy y definción de producto"
+        detail:
+          paragraphs:
+            - "Teniendo a Gemini como aliado estratégico exploré el panorama competitivo para resumir características, ofertas y propuestas de valor de los competidores. Además me ayudó a comprender cálculos financieros y otros conceptos de la economía actual."
+          extra:
+            type: story
+            heading: "User stories y MVP"
+            description: "Los resultados de la investigación se vuelcan en historias de usuarios para decidir una lista de features y criterios de aceptación para el MVP."
+            quote: "Como gestor de la cuenta, quiero copiar un resumen de liquidación a mi portapapeles para poder compartirlo por WhatsApp al grupo."
       - label: "Prototyping"
         description: "User flow · Wireframes"
+        detail:
+          paragraphs:
+            - "El flujo principal lo dispara la decisión de compartir un gasto. Este recorrido es un patrón familiar para el usuario de este tipo de apps. Por otro lado, las features que aportan el valor de la privacidad se presentan en el onboarding."
+          extra:
+            type: image
+            image: "../../../assets/images/split4me-onboarding.png"
+            imageAlt: "Pantalla de onboarding explicando que los datos se quedan en el dispositivo del usuario"
       - label: "Design"
         description: "Design · UI Kit"
+        detail:
+          paragraphs:
+            - "La paleta cromática se basa en el color de la marca como tonalidad primaria para botones, titulares y otros componentes. Otros colores de la interfaz tienen un valor semántico: lo que me deben y lo que debo."
       - label: "Desarrollo"
         description: "Spec-driven development"
   features:
@@ -48,6 +66,6 @@ pageContent:
         imageAlt: "Componentes de interfaz para saldar la deuda"
   externalLinks:
     - type: figma
-      url: "https://www.figma.com/design/eHTvK8tdJGnNJVczk604tc/Split4Me-app?node-id=159-203&t=GLEUyfguBq9tbmth-1"
+      url: "https://www.figma.com/design/eHTvK8tdJGnNJVczk604tc/Split4Me-app?node-id=159-203&t=f0dGeQyzfGAScLpv-1"
       label: "Ver el proyecto en Figma"
       ariaLabel: "Ver el proyecto en Figma"

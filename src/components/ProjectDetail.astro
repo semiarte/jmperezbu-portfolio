@@ -29,7 +29,43 @@ interface Props {
     process: {
       heading: string;
       description: string;
-      steps: Array<{ label: string; description: string }>;
+      steps: Array<{
+        label: string;
+        description: string;
+        detail?: {
+          paragraphs: string[];
+          bullets?: string[];
+          extra?:
+            | {
+                type: "personas";
+                items: Array<{
+                  avatar: ImageMetadata;
+                  avatarAlt: string;
+                  name: string;
+                  trait: string;
+                  role: string;
+                  description: string;
+                }>;
+              }
+            | {
+                type: "story";
+                heading: string;
+                description: string;
+                quote: string;
+              }
+            | { type: "image"; image: ImageMetadata; imageAlt: string }
+            | {
+                type: "typeSystem";
+                fontName: string;
+                baseValue: string;
+                scale: string;
+                sizes: Array<{ label: string; px: string; rem: string }>;
+                colorRatio: Array<{ value: string; colorClass: string }>;
+                image: ImageMetadata;
+                imageAlt: string;
+              };
+        };
+      }>;
     };
     features: {
       heading: string;
@@ -156,6 +192,144 @@ const { intro, process, features, externalLinks, additionalSection } =
             ))
         }
       </div>
+    </div>
+  </section>
+  <!-- Process detail section -->
+  <section
+    id="process-detail"
+    aria-label={`${title} process detail section`}
+    class="max-w-5xl pb-16 md:pb-32 px-6 md:px-16"
+  >
+    <div class="flex flex-col gap-16 md:gap-24">
+      {
+        process.steps.map(
+          (step, index) =>
+            step.detail && (
+              <div
+                class="scroll-reveal"
+                style={`transition-delay: ${index * 100}ms`}
+              >
+                <div class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 md:gap-16">
+                  <div class="flex flex-col">
+                    <span class="text-2xl md:text-3xl font-bold text-teal-400">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span class="text-2xl md:text-3xl font-semibold">
+                      {step.label}
+                    </span>
+                  </div>
+                  <div class="flex flex-col gap-6">
+                    <div class="flex flex-col gap-4">
+                      {step.detail.paragraphs.map((paragraph) => (
+                        <p class="text-base md:text-lg text-slate-300">
+                          {paragraph}
+                        </p>
+                      ))}
+                      {step.detail.bullets && (
+                        <ul class="list-disc list-inside flex flex-col gap-1 text-base md:text-lg text-slate-300">
+                          {step.detail.bullets.map((bullet) => (
+                            <li>{bullet}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                    {step.detail.extra?.type === "personas" && (
+                      <div class="flex flex-col gap-4">
+                        {step.detail.extra.items.map((persona) => (
+                          <div class="flex flex-col md:flex-row md:items-center gap-6 bg-white p-6 border-2 border-sky-500">
+                            <Image
+                              src={persona.avatar}
+                              alt={persona.avatarAlt}
+                              class="w-28 h-28 rounded-full object-cover shrink-0 border-6 border-sky-500"
+                            />
+                            <div class="flex flex-col gap-1">
+                              <p class="text-xl font-semibold text-(--navy)">
+                                {persona.name},{" "}
+                                <span class="font-normal text-sky-500">
+                                  {persona.trait}
+                                </span>
+                              </p>
+                              <p class="text-sm font-semibold text-(--navy)">
+                                {persona.role}
+                              </p>
+                              <p class="text-sm text-(--navy)">
+                                {persona.description}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    {step.detail.extra?.type === "story" && (
+                      <div class="flex flex-col gap-3">
+                        <h4 class="text-lg font-semibold">
+                          {step.detail.extra.heading}
+                        </h4>
+                        <p class="text-base text-slate-300 mb-4">
+                          {step.detail.extra.description}
+                        </p>
+                        <blockquote class="bg-(--navy-400) border-l-4 border-teal-400 rounded-r-lg p-5 text-base italic">
+                          {step.detail.extra.quote}
+                        </blockquote>
+                      </div>
+                    )}
+                    {step.detail.extra?.type === "image" && (
+                      <Image
+                        src={step.detail.extra.image}
+                        alt={step.detail.extra.imageAlt}
+                        class="w-full max-w-70 mx-auto md:mx-0"
+                        loading="lazy"
+                      />
+                    )}
+                    {step.detail.extra?.type === "typeSystem" && (
+                      <div class="flex flex-col md:flex-row gap-6 items-start mt-6">
+                        <div class="flex flex-col gap-6 w-full md:max-w-xs">
+                          <div class="border border-slate-400 rounded-lg p-6 flex flex-col gap-4">
+                            <div>
+                              <p class="text-xl font-semibold">
+                                {step.detail.extra.fontName}
+                              </p>
+                              <p class="text-xs text-slate-400">
+                                Base Value: {step.detail.extra.baseValue} Scale:{" "}
+                                {step.detail.extra.scale}
+                              </p>
+                            </div>
+                            <div class="flex flex-col gap-3">
+                              {step.detail.extra.sizes.map((size) => (
+                                <div class="flex items-baseline gap-4">
+                                  <div class="text-xs text-slate-400 w-16 shrink-0">
+                                    <p>{size.px}</p>
+                                    <p>{size.rem}</p>
+                                  </div>
+                                  <p class="font-semibold">{size.label}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                          <div class="flex gap-4 justify-center">
+                            {step.detail.extra.colorRatio.map((ratio) => (
+                              <div
+                                class={`w-16 h-16 rounded-full flex items-center justify-center font-bold ${ratio.colorClass}`}
+                              >
+                                {ratio.value}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                        <Image
+                          src={step.detail.extra.image}
+                          alt={step.detail.extra.imageAlt}
+                          class="w-full max-w-55"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ),
+        )
+      }
     </div>
   </section>
   <!-- Project details section -->

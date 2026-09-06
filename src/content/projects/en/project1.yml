@@ -24,10 +24,68 @@ pageContent:
     steps:
       - label: "Research"
         description: "Competitor analysis"
+        detail:
+          paragraphs:
+            - "Research becomes concrete by defining a set of user personas that capture key user segments, their goals, and their pain points."
+            - "Subsequently, an analysis of the direct and indirect competitors is carried out to discover usability patterns and possible improvements. Both apps aimed at direct donations and projects that request donations to finance themselves are analyzed."
+          extra:
+            type: personas
+            items:
+              - avatar: "../../../assets/images/persona-lucia.png"
+                avatarAlt: "Portrait of Lucía, HR at a software company"
+                name: "Lucía"
+                trait: "the committed one"
+                role: "HR at a software company"
+                description: "Lucía has spent years involved in social causes on her own initiative: she donates monthly to two NGOs, takes part in occasional volunteering, and closely follows environmental issues."
+              - avatar: "../../../assets/images/persona-javier.png"
+                avatarAlt: "Portrait of Javier, financial analyst at a consulting firm"
+                name: "Javier"
+                trait: "the skeptic"
+                role: "Financial analyst at a consulting firm"
+                description: "Javier is critical of any corporate initiative that sounds like a PR move. He isn't indifferent to social causes, but needs evidence and transparency before getting involved or trusting something."
       - label: "Prototyping"
         description: "User flow · Wireframes"
+        detail:
+          paragraphs:
+            - "In the early stages of the project, a user flow was defined to represent the journey an employee follows to complete a donation. Two key decisions came out of this flow:"
+          bullets:
+            - "Internal distribution app (MDM)"
+            - "Preconfigured tenant: each company's SSO authentication is already resolved before the user opens the app."
       - label: "Design"
         description: "Design · UI Kit"
+        detail:
+          paragraphs:
+            - "High-fidelity design builds directly on the user flow and lo-fi wireframes, but the process doesn't stop there. Iteration continues throughout, guided by atomic design principles and the 60-30-10 color ratio to keep the system consistent and balanced as it evolves."
+          extra:
+            type: typeSystem
+            fontName: "Manrope font"
+            baseValue: "16"
+            scale: "1.071"
+            sizes:
+              - label: "Headline Large"
+                px: "24px"
+                rem: "1.500rem"
+              - label: "Headline medium"
+                px: "20px"
+                rem: "1.250rem"
+              - label: "Headline small"
+                px: "18px"
+                rem: "1.125rem"
+              - label: "Title Large"
+                px: "16px"
+                rem: "1.000rem"
+              - label: "Body medium"
+                px: "14px"
+                rem: "0.875rem"
+            colorRatio:
+              - value: "60"
+                colorClass: "bg-white text-(--navy)"
+              - value: "30"
+                colorClass: "bg-sky-500 text-white"
+              - value: "10"
+                colorClass: "bg-lime-400 text-(--navy)"
+            image: "../../../assets/images/donar-app-donations.png"
+            imageAlt: "Donation history screen showing total donated and recent contributions"
   features:
     heading: "Project"
     description: "Donar App is an app designed for company employees to donate to the charitable projects they choose. Companies assign each employee this budget on a monthly basis."
