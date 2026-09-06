@@ -45,7 +45,7 @@ pageContent:
         description: "Design · UI Kit"
         detail:
           paragraphs:
-            - "La paleta cromática se basa en el color de la marca como tonalidad primaria para botones, titulares y otros elementos de la interfaz. Otros colores de la interfaz tienen un valor semántico: lo que me deben y lo que debo."
+            - "La paleta cromática se basa en el color de la marca como tonalidad primaria para botones, titulares y otros componentes. Otros colores de la interfaz tienen un valor semántico: lo que me deben y lo que debo."
       - label: "Desarrollo"
         description: "Spec-driven development"
   features:
@@ -66,6 +66,6 @@ pageContent:
         imageAlt: "Componentes de interfaz para saldar la deuda"
   externalLinks:
     - type: figma
-      url: "https://www.figma.com/design/eHTvK8tdJGnNJVczk604tc/Split4Me-app?node-id=159-203&t=GLEUyfguBq9tbmth-1"
+      url: "https://www.figma.com/design/eHTvK8tdJGnNJVczk604tc/Split4Me-app?node-id=159-203&t=f0dGeQyzfGAScLpv-1"
       label: "Ver el proyecto en Figma"
       ariaLabel: "Ver el proyecto en Figma"

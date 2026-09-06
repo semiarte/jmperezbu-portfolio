@@ -20,7 +20,7 @@ pageContent:
     solutionDescription: "Propose a privacy-centered alternative, avoiding artificial paywalls to gain competitive advantage and reduce friction from legacy apps."
   process:
     heading: "Process"
-    description: "The process begins with research into the evolution and disruption in ride-sharing apps. Once economically viable solutions and alternatives have been explored, a decision is made on an MVP."
+    description: "The process begins with research into the evolution and disruption in expense-splitting apps. Once economically viable solutions and alternatives have been explored, a decision is made on an MVP."
     steps:
       - label: "Research"
         description: "Legacy app analysis and product definition"
@@ -36,7 +36,7 @@ pageContent:
         description: "User flow · Wireframes"
         detail:
           paragraphs:
-            - "The main flow is triggered by the decision to share an expense — a journey that's a familiar pattern for users of this kind of app. The features that carry the privacy value proposition, on the other hand, are introduced during onboarding."
+            - "The main flow is triggered by the decision to share an expense, a journey that's a familiar pattern for users of this kind of app. The features that carry the privacy value proposition, on the other hand, are introduced during onboarding."
           extra:
             type: image
             image: "../../../assets/images/split4me-onboarding.png"
@@ -45,7 +45,7 @@ pageContent:
         description: "Design · UI Kit"
         detail:
           paragraphs:
-            - "The color palette is based on the brand color as the primary tone for buttons, headings, and other interface elements. Other interface colors carry semantic meaning: what I'm owed and what I owe."
+            - "The color palette is based on the brand color as the primary tone for buttons, headings, and other components. Other interface colors carry semantic meaning: what I'm owed and what I owe."
   features:
     heading: "Project"
     description: "Split4Me follows a zero-friction approach based on two pillars: deferred authentication, allowing the app to be fully functional immediately without previous registration, and a local-first architecture that decentralizes data storage on the client device."
@@ -64,6 +64,6 @@ pageContent:
         imageAlt: "Interface components for settling debt"
   externalLinks:
     - type: figma
-      url: "https://www.figma.com/design/eHTvK8tdJGnNJVczk604tc/Split4Me-app?node-id=159-203&t=GLEUyfguBq9tbmth-1"
+      url: "https://www.figma.com/design/eHTvK8tdJGnNJVczk604tc/Split4Me-app?node-id=159-203&t=f0dGeQyzfGAScLpv-1"
       label: "View the project in Figma"
       ariaLabel: "View the project in Figma"

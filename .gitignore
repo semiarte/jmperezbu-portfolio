@@ -32,3 +32,4 @@ skills-lock.json
 .claude/
 .superpowers/
 docs/*
+.playwright-mcp/

@@ -27,7 +27,7 @@ pageContent:
         detail:
           paragraphs:
             - "La investigación se concreta al definir un conjunto de user personas que recojan los segmentos clave de usuarios, sus objetivos y sus puntos de dolor."
-            - "Posteriormente, se lleva a cabo un análisis de la competencia directa e indirecta para descubrir patrones de usabilidad y posibles mejoras. Se analizan tanto apps orientadas a donaciones directas mensuales como proyectos que solicitan donaciones para financiarse."
+            - "Posteriormente, se lleva a cabo un análisis de la competencia directa e indirecta para descubrir patrones de usabilidad y posibles mejoras. Se analizan tanto apps orientadas a donaciones directas como proyectos que solicitan donaciones para financiarse."
           extra:
             type: personas
             items:

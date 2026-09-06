@@ -27,7 +27,7 @@ pageContent:
         detail:
           paragraphs:
             - "Research becomes concrete by defining a set of user personas that capture key user segments, their goals, and their pain points."
-            - "Subsequently, an analysis of the direct and indirect competitors is carried out to discover usability patterns and possible improvements. Both apps aimed at monthly direct donations and projects that request donations to finance themselves are analyzed."
+            - "Subsequently, an analysis of the direct and indirect competitors is carried out to discover usability patterns and possible improvements. Both apps aimed at direct donations and projects that request donations to finance themselves are analyzed."
           extra:
             type: personas
             items:
